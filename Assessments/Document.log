@@ -1,0 +1,578 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=prv_Document 2015.6.5)  5 JUN 2015 10:13
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**&prv_Document Document.tex
+(./Document.tex
+LaTeX2e <2014/05/01>
+Babel <3.9k> and hyphenation patterns for 78 languages loaded.
+CUSTOMISED FORMAT. Preloaded files:
+        .
+scrartcl.cls    2013/12/19 v3.12 KOMA-Script document class (article)
+scrkbase.sty    2013/12/19 v3.12 KOMA-Script package (KOMA-Script-dependent bas
+ics and keyval usage)
+ scrbase.sty    2013/12/19 v3.12 KOMA-Script package (KOMA-Script-independent b
+asics and keyval usage)
+  keyval.sty    2014/05/08 v1.15 key=value parser (DPC)
+scrlfile.sty    2013/12/19 v3.12 KOMA-Script package (loading files)
+tocbasic.sty    2013/12/19 v3.12 KOMA-Script package (handling toc-files)
+scrsize10pt.clo    2013/12/19 v3.12 KOMA-Script font size class option (10pt)
+typearea.sty    2013/12/19 v3.12 KOMA-Script package (type area)
+ fontenc.sty
+   t1enc.def    2005/09/27 v1.99g Standard LaTeX file
+ fourier.sty    2005/01/01 1.4 fourier-GUTenberg package
+ fontenc.sty
+   t1enc.def    2005/09/27 v1.99g Standard LaTeX file
+textcomp.sty    2005/09/27 v1.99g Standard LaTeX package
+  ts1enc.def    2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+fourier-orns.sty    2004/01/30 1.1 fourier-ornaments package
+ caption.sty    2013/05/02 v3.3-89 Customizing captions (AR)
+caption3.sty    2013/05/02 v1.6-88 caption3 kernel (AR)
+   babel.sty    2014/03/24 3.9k The Babel package
+ english.ldf    2012/08/20 v3.3p English support from the babel system
+microtype.sty    2013/05/23 v2.5a Micro-typographical refinements (RS)
+microtype-pdftex.def    2013/05/23 v2.5a Definitions specific to pdftex (RS)
+microtype.cfg    2013/05/23 v2.5a microtype main configuration file (RS)
+ amsmath.sty    2013/01/14 v2.14 AMS math features
+ amstext.sty    2000/06/29 v2.01
+  amsgen.sty    1999/11/30 v2.0
+  amsbsy.sty    1999/11/29 v1.2d
+  amsopn.sty    1999/12/14 v2.01 operator names
+amsfonts.sty    2013/01/14 v3.01 Basic AMSFonts support
+  amsthm.sty    2004/08/06 v2.20
+graphicx.sty    2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+graphics.sty    2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+    trig.sty    1999/03/16 v1.09 sin cos tan (DPC)
+graphics.cfg    2010/04/23 v1.9 graphics configuration of TeX Live
+  pdftex.def    2011/05/27 v0.06d Graphics/color for pdfTeX
+infwarerr.sty    2010/04/08 v1.3 Providing info/warning/error messages (HO)
+ ltxcmds.sty    2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+     url.sty    2013/09/16  ver 3.4  Verb mode for urls, etc.
+ wrapfig.sty    2003/01/31  v 3.6
+ sidecap.sty    2003/06/06 v1.6f SideCap Package (RN/HjG)
+  ifthen.sty    2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+ sectsty.sty    2002/02/25 v2.0.2 Commands to change all sectional heading styl
+es
+geometry.sty    2010/09/12 v5.6 Page Geometry
+   ifpdf.sty    2011/01/30 v2.3 Provides the ifpdf switch (HO)
+  ifvtex.sty    2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+ ifxetex.sty    2010/09/12 v0.6 Provides ifxetex conditional
+fancyhdr.sty    
+  t1futs.fd    2004/03/02 Fontinst v1.926 font definitions for T1/futs.
+fmlfutmi.fd    2004/10/30 Fontinst v1.926 font definitions for FML/futmi.
+ fmsfutm.fd    2004/10/30 Fontinst v1.926 font definitions for FMS/futm.
+ fmxfutm.fd    futm-extension
+ fmlfutm.fd    2004/10/30 Fontinst v1.926 font definitions for FML/futm.
+    umsa.fd    2013/01/14 v3.01 AMS symbols A
+    umsb.fd    2013/01/14 v3.01 AMS symbols B
+  t1cmtt.fd    1999/05/25 v2.5h Standard LaTeX font definitions
+  t1cmss.fd    1999/05/25 v2.5h Standard LaTeX font definitions
+        .
+(./Document.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for FML/futm/m/it on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for FMS/futm/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for FMX/futm/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 95.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 95.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 95.
+
+(/Users/rq14449/.emacs.d/elpa/auctex-11.88.2/latex/preview.sty
+Package: preview 2010/02/14 11.88 (AUCTeX/preview-latex)
+
+(/Users/rq14449/.emacs.d/elpa/auctex-11.88.2/latex/prtightpage.def
+\PreviewBorder=\dimen137
+)
+(/Users/rq14449/.emacs.d/elpa/auctex-11.88.2/latex/prauctex.def
+No auxiliary output files.
+
+
+\hbadness=\count110
+\hfuzz=\dimen138
+(/Users/rq14449/.emacs.d/elpa/auctex-11.88.2/latex/prauctex.cfg))
+(/Users/rq14449/.emacs.d/elpa/auctex-11.88.2/latex/prfootnotes.def)
+\pr@snippet=\count111
+\pr@box=\box31
+\pr@output=\toks29
+
+Preview: Fontsize 10pt
+Preview: PDFoutput 1
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: Incompatible package detected (regarding \caption).
+(caption)             \caption = \protected\long macro:->\pr@protect@domacro {}
+{##1{}}\pr@\caption .
+
+
+Package caption Warning: \caption will not be redefined since it's already
+(caption)                redefined by a document class or package which is
+(caption)                unknown to the caption package.
+See the caption package documentation for explanation.
+
+Package caption Info: sidecap package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Info: Redefining \microtypecontext on input line 95.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+Package microtype Info: Loading generic settings for font family
+(microtype)             `futs' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+(/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count112
+\scratchdimen=\dimen139
+\scratchbox=\box32
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count115
+\MPscratchDim=\dimen140
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks31
+) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/ms/ragged2e.sty
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/ms/everysel.sty
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 126.
+)
+\CenteringLeftskip=\skip64
+\RaggedLeftLeftskip=\skip65
+\RaggedRightLeftskip=\skip66
+\CenteringRightskip=\skip67
+\RaggedLeftRightskip=\skip68
+\RaggedRightRightskip=\skip69
+\CenteringParfillskip=\skip70
+\RaggedLeftParfillskip=\skip71
+\RaggedRightParfillskip=\skip72
+\JustifyingParfillskip=\skip73
+\CenteringParindent=\skip74
+\RaggedLeftParindent=\skip75
+\RaggedRightParindent=\skip76
+\JustifyingParindent=\skip77
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(28.45274pt, 540.60239pt, 28.45274pt)
+* v-part:(T,H,B)=(28.45274pt, 788.14136pt, 28.45274pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=540.60239pt
+* \textheight=788.14136pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
+* \topmargin=-76.81725pt
+* \headheight=13.6pt
+* \headsep=18.0pt
+* \topskip=10.0pt
+* \footskip=42.0pt
+* \marginparwidth=74.68849pt
+* \marginparsep=12.8401pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmss' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Try loading font information for OT1+bch on input line 97.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ot1bch.fd
+File: ot1bch.fd 2004/10/18 font definitions for OT1/bch.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/mt-bch.cfg
+File: mt-bch.cfg 2007/03/03 v1.5 microtype config. file: Bitstream Charter (RS)
+
+)
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 13.24796pt on input line 97.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 97.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 13.24796pt on input line 97.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 97.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+! Preview: Snippet 1 started.
+<-><->
+      
+l.97 \section
+             {Overview of work done}
+Not a real error.
+
+Preview: Tightpage -32891 -32891 32891 32891
+! Preview: Snippet 1 ended.(599732+6133x35428918).
+<-><->
+      
+l.97 \section{Overview of work done}
+                                    
+Not a real error.
+
+[1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+]
+! Preview: Snippet 2 started.
+<-><->
+      
+l.99 ...s work regards the study of double charm $
+                                                  B$ decays at \textit{LHCb}...
+
+Not a real error.
+
+! Preview: Snippet 2 ended.(421723+0x442367).
+<-><->
+      
+l.99 ...work regards the study of double charm $B$
+                                                   decays at \textit{LHCb} w...
+
+Not a real error.
+
+[2]
+! Preview: Snippet 3 started.
+<-><->
+      
+l.100 \subsection
+                 {Software development Project : Seeding Algorithm for the L...
+
+Not a real error.
+
+! Preview: Snippet 3 ended.(499777+69992x35428918).
+<-><->
+      
+l.100 ...: Seeding Algorithm for the LHCb Upgrade}
+                                                  
+Not a real error.
+
+[3
+
+]
+LaTeX Font Info:    Try loading font information for TS1+futs on input line 104
+.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/fourier/ts1futs.fd
+File: ts1futs.fd 2004/03/26 Fontinst v1.926 font definitions for TS1/futs.
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `futs' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+! Preview: Snippet 4 started.
+<-><->
+      
+l.104 ... the signature of particles having high $
+                                                  E_{T},p_{T}$.}
+Not a real error.
+
+! Preview: Snippet 4 ended.(421723+148111x1782454).
+<-><->
+      
+l.104 ...re of particles having high $E_{T},p_{T}$
+                                                  .}
+Not a real error.
+
+[4]
+
+LaTeX Warning: Reference `figure:Tracks' on page 1 undefined on input line 108.
+
+
+! Preview: Snippet 5 started.
+<-><->
+      
+l.109 \begin{figure}
+                    [h]
+Not a real error.
+
+<Images/tracktype.png, id=17, 379.6584pt x 230.3004pt>
+File: Images/tracktype.png Graphic file (type png)
+
+<use Images/tracktype.png>
+Package pdftex.def Info: Images/tracktype.png used on input line 111.
+(pdftex.def)             Requested size: 270.3012pt x 163.96423pt.
+
+! Preview: Snippet 5 ended.(12187352+0x35428918).
+<-><->
+      
+l.115 \end{figure}
+                  
+Not a real error.
+
+[5
+
+
+
+ <./Images/tracktype.png>]
+! Preview: Snippet 6 started.
+<-><->
+      
+l.119 \subsubsection
+                    {Analysis Work : $B^{0}\rightarrow D^{0}\overline{D}^{0}...
+
+Not a real error.
+
+! Preview: Snippet 6 ended.(711125+5242x35428918).
+<-><->
+      
+l.119 ...^{0}\overline{D}^{0}K^{\ast 0}$ analysis}
+                                                  
+Not a real error.
+
+[6
+
+]
+! Preview: Snippet 7 started.
+<-><->
+      
+l.122 \paragraph
+                {Heading on level 4 (paragraph)}
+Not a real error.
+
+! Preview: Snippet 7 ended.(416481+72416x9481566).
+<-><->
+      
+l.122 \paragraph{Heading on level 4 (paragraph)}
+                                                
+Not a real error.
+
+[7
+
+]
+! Preview: Snippet 8 started.
+<-><->
+      
+l.126 \section
+              {Choice of Thesis Topic}
+Not a real error.
+
+! Preview: Snippet 8 ended.(599732+6133x35428918).
+<-><->
+      
+l.126 \section{Choice of Thesis Topic}
+                                      
+Not a real error.
+
+[8
+
+]
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.128 \begin{itemize}
+                     
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.129 	\item F
+              irst item in a list
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.129 	\item F
+              irst item in a list
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.129 	\item F
+              irst item in a list
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.131 		\item F
+               irst item in a list
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Too deeply nested.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.132 			\begin{itemize}
+                        
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Preview: Snippet 9 started.
+<-><->
+      
+l.147 \section
+              {Timetable for future}
+Not a real error.
+
+! Preview: Snippet 9 ended.(599732+6133x35428918).
+<-><->
+      
+l.147 \section{Timetable for future}
+                                    
+Not a real error.
+
+[9
+
+]
+
+! LaTeX Error: \begin{itemize} on input line 117 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.150 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+LaTeX Warning: There were undefined references.
+
+ )
+(\end occurred inside a group at level 3)
+
+### semi simple group (level 3) entered at line 117 (\begingroup)
+### simple group (level 2) entered at line 105 ({)
+### semi simple group (level 1) entered at line 103 (\begingroup)
+### bottom level 
+Here is how much of TeX's memory you used:
+ 1415 strings out of 485656
+ 24628 string characters out of 6020132
+ 267476 words of memory out of 5000000
+ 12005 multiletter control sequences out of 15000+600000
+ 100819 words of font info for 146 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 47i,10n,37p,618b,522s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc
+}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on Document.pdf (9 pages, 65657 bytes).
+PDF statistics:
+ 50 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 43526 words of extra memory for PDF output out of 51595 (max. 10000000)
+
