@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.1.20)  5 JUN 2015 10:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.1.20)  6 JUN 2015 17:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -464,16 +464,19 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \WF@everypar=\toks27
 Package: wrapfig 2003/01/31  v 3.6
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen125
+)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/sidecap/sidecap.sty
 Package: sidecap 2003/06/06 v1.6f SideCap Package (RN/HjG)
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\SC@BOXWD=\dimen125
-\SC@CAPWD=\dimen126
-\SC@tempdima=\dimen127
-\SC@tempdimb=\dimen128
+\SC@BOXWD=\dimen126
+\SC@CAPWD=\dimen127
+\SC@tempdima=\dimen128
+\SC@tempdimb=\dimen129
 \c@SC@C=\count106
 \SC@BOX=\box30
 )
@@ -498,14 +501,14 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@cnth=\count107
 \Gm@cntv=\count108
 \c@Gm@tempcnt=\count109
-\Gm@bindingoffset=\dimen129
-\Gm@wd@mp=\dimen130
-\Gm@odd@mp=\dimen131
-\Gm@even@mp=\dimen132
-\Gm@layoutwidth=\dimen133
-\Gm@layoutheight=\dimen134
-\Gm@layouthoffset=\dimen135
-\Gm@layoutvoffset=\dimen136
+\Gm@bindingoffset=\dimen130
+\Gm@wd@mp=\dimen131
+\Gm@odd@mp=\dimen132
+\Gm@even@mp=\dimen133
+\Gm@layoutwidth=\dimen134
+\Gm@layoutheight=\dimen135
+\Gm@layouthoffset=\dimen136
+\Gm@layoutvoffset=\dimen137
 \Gm@dimlist=\toks28
 )
 
@@ -601,10 +604,10 @@ LaTeX Font Info:    Try loading font information for T1+cmss on input line 95.
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) )
 Beginning to dump on file prv_Document.fmt
- (preloaded format=prv_Document 2015.6.5)
-14344 strings of total length 229868
-254263 memory locations dumped; current usage is 297&248190
-10810 multiletter control sequences
+ (preloaded format=prv_Document 2015.6.6)
+14361 strings of total length 230266
+254462 memory locations dumped; current usage is 297&248389
+10823 multiletter control sequences
 \font\nullfont=nullfont
 \font\OMX/cmex/m/n/10=cmex10
 \font\tenln=line10

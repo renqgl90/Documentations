@@ -37,7 +37,7 @@
 \usepackage[pdftex]{graphicx}	
 \usepackage{url}
 \usepackage{wrapfig}
-
+\usepackage{multirow}
 
 
 \usepackage{sidecap}
@@ -101,9 +101,8 @@ The analysis work regards the study of double charm $B$ decays at \textit{LHCb} 
 Before discuss about the work done in this domain a small introduction about the tracking and the upgrade of the \textit{LHCb} detector is mandatory.
 The data taking at \textit{LHCb} during 2011 and 2012 at LHCb are mainly determined by a few steps.
 \begin{itemize}
-\item{The \textit{L0 Trigger} which is implemented at the hardware level aiming to reduce the 40 \textit{MHz} bunch crossing rate to 1\textit{MHz} make use of estimation and measurements of the signature of particles having high $E_{T},p_{T}$.}
-\item{\textit{High Level Trigger}: It consists in a software trigger where the tracking algorithms are run. In particular the seeding algorithm (called \textit{PatSeeding}) in the \textit{HLT-I} were runned making use of the left-over hits coming from the forward tracker.
-To be better described.
+\item{The \textit{L0 Trigger} which is implemented at the hardware level aiming to reduce the 40 \textit{MHz} bunch crossing rate to 1\textit{MHz} make use of estimation and measurements of the signature of particles having high $E_{T},p_{T}$. }. The main reason why this is done is because the read-out system as it is for Run-I and Run-II cannot affort an incoming rate of 40\textit{MHz}. In the upgrade all the reado-out will be substituted and the trigger will be done at the software level.
+\item{\textit{High Level Trigger}: It consists in a software trigger where the tracking algorithms are run. During the Run-I, the seeding algorithm (called \textit{PatSeeding}) in the \textit{HLT} were runned making use of the left-over hits coming from the \textit{Forward} algorithm. During Run-I the \textit{Seeding} was used in the online reconstruction in tandem with the \textit{Forward} as described before while in the offline reconstruction it was run as a \textit{Standalone} algorithm. For the Run-II ...to complete.
 
 The track reconstruction at \textit{LHCb} is decompose in different steps. The idea is to provide different containers containing different category of tracks. The track classification at \textit{LHCb} is done depending on the path the track goes through, so it's based on the datector's hit content as shown in Fig. ~\ref{figure:Tracks}.
 \begin{figure}[h]
@@ -114,13 +113,28 @@ The track reconstruction at \textit{LHCb} is decompose in different steps. The i
   \end{center}
 \end{figure}
 In the tracking system of \textit{LHCb} each track type is reconstructed by a proper algorithm and a schematic layout of how things works is given in table \ref{Table:tracks}.
+\begin{table}[h]
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Track Type & Used Detector &Algorithm(s)& Input&  Output    \\ \hline
+\begin{tabular}[|l|]{@{}l@{}}Velo Tracks\\ or Velo-Segment\end{tabular} & Velo & Velo algorithm  & \multicolumn{1}{|l|}{/} & Velo         \\ \hline
+\begin{tabular}[|l|]{@{}l@{}}Seed Tracks\\ or T-Tracks\end{tabular}     & \begin{tabular}[|l|]{@{}c@{}}T-Stations\\ (SciFi in upgrade)\end{tabular}                                                                                    & \multicolumn{1}{|l|}{Seeding algorithm}                                                                                             & \multicolumn{1}{|l|}{\begin{tabular}[|l|]{@{}l@{}}Allow the possible usage of\\ the leftover hits of forward.\\ If Not: Standalone Algorithm\end{tabular}} & Seed  \\ \hline
+\multicolumn{1}{|l|}{\multirow{2}{*}{Long Tracks (1)}}                  & \multirow{2}{*}{\begin{tabular}[l]{@{}l@{}}Velo + TT + T-Stations\\ (TT $\rightarrow$ UT  \\ T-Stations $\rightarrow$ SciFi \\ in upgrade)\end{tabular}} & \begin{tabular}[|l|]{@{}l@{}} 1) Forward tracking:\\ Search in T-Stations knowing \\ Velo-Segment (adding also TT)\end{tabular}         & Velo Container               & \multirow{2}{*}{Long} \\ 
+\multicolumn{1}{|l|}{}                                              &                                                                                                                                                            & \begin{tabular}[|l|]{@{}l@{}} 2)Matching algorithm:\\ Merge T-Tracks with Velo-Segment\\ 3)BestSelector= Forward+Matching\end{tabular} & Velo and Seed Containers                                                                                                                               &                       \\ \hline
+Downstream Tracks                                                     & \multicolumn{1}{|l|}{\begin{tabular}[|l|]{@{}l@{}}T-Stations and TT\\ (SciFi and UT)\end{tabular}}                                                             & \begin{tabular}[|l|]{@{}l@{}}Downstream algorithm:\\ Use T-Tracks and\\ add TT (UT upgrade) hits\end{tabular}                         & Seed Container                                                                                                                                         & Downstream            \\ \hline Upstream Track                                                        & \multicolumn{1}{|l|}{Velo and TT} & \begin{tabular}[|l|]{@{}l@{}}Upstream algorithm:\\ Use Velo segment and \\ add TT( UT upgrade) hits\end{tabular} & Velo Container &  Upstream \\ \hline \end{tabular}
+\end{table}
 
-\begin{itemize} 
-\item Velo tracks and Velo segments : tracks are reconstructed as 3-D object and they fill the container of \textit{Velo tracks} and they are found under the assumpiton that all of them originate from the same point.
-\item \textit{T-Tracks} , i.e., tracks going through the T-Station (\textit{SciFi} for upgrade) track reconstruction, it is done by the \textit{Seeding} algorithm and it runs as a standalone algorithm (alternitavely it can run on the leftover hits of the \textit{Forward} tracking). It's mainly useful to reconstruct tracks from long-lived particles such as $K_{s}^{0}$ and $\Lambda^{0}$  and in general tracks without \textit{Velo} segment. The \textit{seeding} algorithm ouput is used then to reconstruct \textit{Downstream} tracks, as well as \textit{long} tracks.
-\item \textit{Long} tracks, which are the most interesting one for physics analysis are reconstructed mainly by two algorithms : the \textit{Forward tracking} which took as input tracks from the \textit{Velo} and propagate them into the \textit{T-station} (\textit{SciFi}) adding also additional informations from the \textit{TT} (\textit{UT} for the upgrade). The second algorithm aiming to reconstruct \textit{Long} tracks is called \textit{Matching} and it combines the output of the \textit{Velo} algorithm and the output of the \textit{Seeding} algorithm.
-\item \textit{Upstream}  tracks are reconstructed throught the \textit{Upstrem} algorithm
-\item Long 
+All the tracks produced by the algorithms provided before will be reprocessed by the Kalman Filter which will reprocess the tracks assigning a sort of \textit{univoque} $\chi^{2}$ to the track and will refit them taking into account the magnetic field map and the material budget of the tracks to multiscattering correction. From a more technical point of view, each track is defined by a vector of track state $\left( x, y, t_{x}, t_{y} , \frac{q}{p} \right)_{z}^{T}$ which is then propagated by a $5X5$ matrix through the detector considering the interactions and the B-Field map. At the level of the track search done by the algorithms the main goal is to provide for each track a set of compatible hits and only at the end of the algotithm they are converted into track state.
+
+Going back to the upgrade, a brief description on what it consists is mandatory.
+
+
+%\begin{itemize} 
+%\item Velo tracks and Velo segments : tracks are reconstructed as 3-D object and they fill the container of \textit{Velo tracks} and they are found under the assumpiton that all of them originate from the same point.
+%\item \textit{T-Tracks} , i.e., tracks going through the T-Station (\textit{SciFi} for upgrade) track reconstruction, it is done by the \textit{Seeding} algorithm and it runs as a standalone algorithm (alternitavely it can run on the leftover hits of the \textit{Forward} tracking). It's mainly useful to reconstruct tracks from long-lived particles such as $K_{s}^{0}$ and $\Lambda^{0}$  and in general tracks without \textit{Velo} segment. The \textit{seeding} algorithm ouput is used then to reconstruct \textit{Downstream} tracks, as well as \textit{long} tracks.
+%\item \textit{Long} tracks, which are the most interesting one for physics analysis are reconstructed mainly by two algorithms : the \textit{Forward tracking} which took as input tracks from the \textit{Velo} and propagate them into the \textit{T-station} (\textit{SciFi}) adding also additional informations from the \textit{TT} (\textit{UT} for the upgrade). The second algorithm aiming to reconstruct \textit{Long} tracks is called \textit{Matching} and it combines the output of the \textit{Velo} algorithm and the output of the \textit{Seeding} algorithm.
+%\item \textit{Upstream}  tracks are reconstructed throught the \textit{Upstrem} algorithm.
+%\item Long 
 
 \subsubsection{Analysis Work : $B^{0}\rightarrow D^{0}\overline{D}^{0}K^{\ast 0}$ analysis}
 Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.

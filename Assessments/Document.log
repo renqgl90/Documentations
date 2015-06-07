@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.1.20)  6 JUN 2015 15:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.1.20)  6 JUN 2015 17:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -456,16 +456,19 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \WF@everypar=\toks27
 Package: wrapfig 2003/01/31  v 3.6
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen125
+)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/sidecap/sidecap.sty
 Package: sidecap 2003/06/06 v1.6f SideCap Package (RN/HjG)
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\SC@BOXWD=\dimen125
-\SC@CAPWD=\dimen126
-\SC@tempdima=\dimen127
-\SC@tempdimb=\dimen128
+\SC@BOXWD=\dimen126
+\SC@CAPWD=\dimen127
+\SC@tempdima=\dimen128
+\SC@tempdimb=\dimen129
 \c@SC@C=\count106
 \SC@BOX=\box30
 )
@@ -490,14 +493,14 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@cnth=\count107
 \Gm@cntv=\count108
 \c@Gm@tempcnt=\count109
-\Gm@bindingoffset=\dimen129
-\Gm@wd@mp=\dimen130
-\Gm@odd@mp=\dimen131
-\Gm@even@mp=\dimen132
-\Gm@layoutwidth=\dimen133
-\Gm@layoutheight=\dimen134
-\Gm@layouthoffset=\dimen135
-\Gm@layoutvoffset=\dimen136
+\Gm@bindingoffset=\dimen130
+\Gm@wd@mp=\dimen131
+\Gm@odd@mp=\dimen132
+\Gm@even@mp=\dimen133
+\Gm@layoutwidth=\dimen134
+\Gm@layoutheight=\dimen135
+\Gm@layouthoffset=\dimen136
+\Gm@layoutvoffset=\dimen137
 \Gm@dimlist=\toks28
 )
 
@@ -600,13 +603,13 @@ Package microtype Info: Loading generic settings for font family
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count110
-\scratchdimen=\dimen137
+\scratchdimen=\dimen138
 \scratchbox=\box31
 \nofMPsegments=\count111
 \nofMParguments=\count112
 \everyMPshowfont=\toks29
 \MPscratchCnt=\count113
-\MPscratchDim=\dimen138
+\MPscratchDim=\dimen139
 \MPnumerator=\count114
 \makeMPintoPDFobject=\count115
 \everyMPtoPDFconversion=\toks30
@@ -782,23 +785,23 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 108.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 107.
 
 
-LaTeX Warning: Reference `figure:Tracks' on page 1 undefined on input line 108.
+LaTeX Warning: Reference `figure:Tracks' on page 1 undefined on input line 107.
 
 
 <Images/tracktype.png, id=1, 379.6584pt x 230.3004pt>
 File: Images/tracktype.png Graphic file (type png)
 
 <use Images/tracktype.png>
-Package pdftex.def Info: Images/tracktype.png used on input line 111.
+Package pdftex.def Info: Images/tracktype.png used on input line 110.
 (pdftex.def)             Requested size: 270.3012pt x 163.96423pt.
 
 ! Argument of \caption@ydblarg has an extra }.
 <inserted text> 
                 \par 
-l.112 ...the Scintillating Fibre tracker (SCIFI).}
+l.111 ...the Scintillating Fibre tracker (SCIFI).}
                                                   
 ? 
 Runaway argument?
@@ -806,72 +809,76 @@ Runaway argument?
 ! Paragraph ended before \caption@ydblarg was complete.
 <to be read again> 
                    \par 
-l.112 ...the Scintillating Fibre tracker (SCIFI).}
+l.111 ...the Scintillating Fibre tracker (SCIFI).}
                                                   
 ? 
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.25598pt on input line 112.
+(Font)              scaled to size 6.25598pt on input line 111.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.25598pt on input line 112.
+(Font)              scaled to size 6.25598pt on input line 111.
 
-LaTeX Warning: Reference `Table:tracks' on page 1 undefined on input line 116.
+LaTeX Warning: Reference `Table:tracks' on page 1 undefined on input line 115.
+
+
+Overfull \vbox (24.0pt too high) detected at line 122
+ []
+
+
+Overfull \hbox (11.61691pt too wide) in paragraph at lines 117--125
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [1
 
 
 
 
-{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Image
-s/tracktype.png>]
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-! LaTeX Error: Too deeply nested.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.138             \begin{itemize}
-                                 
-? 
-
-! LaTeX Error: \begin{itemize} on input line 118 ended by \end{document}.
+! LaTeX Error: \begin{itemize} on input line 103 ended by \end{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.155 \end{document}
+l.169 \end{document}
                     
 ? 
-[2] (./Document.aux)
+[2 <./Images/tracktype.png>] (./Document.aux)
 
 LaTeX Warning: There were undefined references.
 
  )
-(\end occurred inside a group at level 3)
+(\end occurred inside a group at level 2)
 
-### semi simple group (level 3) entered at line 118 (\begingroup)
 ### simple group (level 2) entered at line 105 ({)
 ### semi simple group (level 1) entered at line 103 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 8733 strings out of 493117
- 136994 string characters out of 6135433
- 266763 words of memory out of 5000000
- 11835 multiletter control sequences out of 15000+600000
- 109433 words of font info for 207 fonts, out of 8000000 for 9000
+ 8765 strings out of 493117
+ 137550 string characters out of 6135433
+ 273975 words of memory out of 5000000
+ 11849 multiletter control sequences out of 15000+600000
+ 110375 words of font info for 218 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 47i,12n,47p,636b,590s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,17n,47p,853b,596s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc
-}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb>
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/lo
-cal/texlive/2014/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/tex
-live/2014/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on Document.pdf (2 pages, 90147 bytes).
+}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pf
+b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/t
+exlive/2014/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on Document.pdf (2 pages, 94248 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
- 23 compressed objects within 1 object stream
+ 39 PDF objects out of 1000 (max. 8388607)
+ 26 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  44038 words of extra memory for PDF output out of 51595 (max. 10000000)
 
