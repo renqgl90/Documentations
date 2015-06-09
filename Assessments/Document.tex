@@ -38,7 +38,7 @@
 \usepackage{url}
 \usepackage{wrapfig}
 \usepackage{multirow}
-
+\usepackage{hyperref}
 
 \usepackage{sidecap}
 %%% Custom sectioning
@@ -95,25 +95,82 @@
 \begin{document}
 \maketitle
 \section{Overview of work done}
-A description of the work done up to now will be described. It consists in two major blocks. The first one is related to the analysis work and it has been done between June 2014 and October 2014 , period in which i was finishing the master degree in Ferrara Unviersity and i get the NPAC master 2 at Paris Sud University. The second one is related to the work done in the context of the Upgrade of the LHCb detector consisting in the improvements of the \textit{Seeding} tracking algorithm which actually becomes the development of new algorithm , the \textit{Hybrid Seeding}.
+A description of the work done up to now will be described. It consists in two major blocks. The first one is related to the analysis work and it has been done between June 2014 and October 2014 , period in which i was finishing the master degree in Ferrara Unviersity and i get the NPAC master 2 at Paris Sud University. The second one is related to the work done in the context of the preparation for the upgrade of the LHCb detector consisting in the improvements of the \textit{Seeding} tracking algorithm which actually becomes the development of new algorithm , the \textit{Hybrid Seeding}.
 %The analysis work regards the study of double charm $B$ decays at \textit{LHCb} while the \textit{Seeding Algorithm for the LHCb upgrade} connsists in a software development project.
-\subsection{Software development Project : Seeding Algorithm for the LHCb Upgrade}
-Before discuss about the work done in this domain a small introduction about the tracking and the upgrade of the \textit{LHCb} detector is mandatory.
-\subsubsection{Indtroduction to LHCb and to the Upgrade Scintillating Fibre Tracker (SciFi).}
-The \textit{LHCb} detector \cite{Blake1} aims to search indirect signatures of New Physics through quantum loop induced processes through the measurements of strongly suppressed Standard Model processes and studying very rare decays. In this context precision and statistics play a fundamental role. Up to now, in \textit{LHCb} and \textit{LHC}, no deviations from the Standard Model (SM) have been observed and even if \textit{LHCb} has provided the world's best measurements in some channels, it is still limited from improving them by statistics rather than systematics. Due to this the upgrade of the \textit{LHCb} forward spectrometer is mandatory in order to collect \textit{O(100)} times more data and reduce the statistics uncertainty of a factor 10 in order to be comparable with the theoretical one \cite{Blake2}\cite{Blake3}.
+%\subsection{Track Reconstruction project : Seeding Algorithm for the LHCb Upgrade}
+Before discussing the work done in this domain a small introduction about the tracking and the upgrade of the \textit{LHCb} detector is mandatory.
+\subsection{Indtroduction to LHCb and to the Upgrade Scintillating Fibre Tracker (SciFi).}
+The \textit{LHCb} detector ~\cite{Blake1} aims at search indirect signatures of New Physics through quantum loop induced processes through the measurements of strongly suppressed Standard Model processes.
+In this context precision plays a fundamental role. 
+Up to now, in \textit{LHCb} and other \textit{LHC} experiments, no strong deviations from the Standard Model (SM) have been observed and even if \textit{LHCb} has already provided the world's best measurements in some channels, it is still limited from improving them by statistics rather than systematics. Due to this, the upgrade of the \textit{LHCb} forward spectrometer is mandatory in order to collect \textit{O(100)} times more data and reduce the statistics uncertainty of a factor 10 in order to be comparable with the theoretical one ~\cite{Blake2}~\cite{Blake3}.
 
-The \textit{LHCb} detector is designed to be a single-arm forward spectrometer aiming to detect of particles and their decay products, and as the \textit{b} in the name of the detector suggests, it is designed to study particles containing \textit{b} and \textit{c} quarks which are produced strongly boosted in the forward and backward (lost)  directions for symmetric energies of colliding protons.\footnote{The relevant process infact is the quark-gluon fusion which can be obtained in proton proton collisions only with strongly asymmetric PDFs.}
-
-The detailed description of the \textit{LHCb} detector can be found in \cite{Blake1}.
-
+The \textit{LHCb} detector is designed to be a single-arm forward spectrometer aiming to detect particles and their decay products, and as the \textit{b} in the name of the detector suggests, it is designed to study particles containing \textit{b} and \textit{c} quarks which are produced strongly boosted in the forward and backward (lost)  directions for symmetric energies of colliding protons.\footnote{The relevant process infact is the quark-gluon fusion which can be obtained in proton proton collisions only with strongly asymmetric PDFs.}
+The detailed description of the \textit{LHCb} detector can be found in ~\cite{Blake1}.
 The data taking at \textit{LHCb} during 2011 and 2012 at LHCb are mainly determined by few steps:
 \begin{itemize}
-\item{Interesting events are selected by the \textit{L0 Trigger} which is implemented at the hardware level aiming to reduce the 40 \textit{MHz} bunch crossing rate to 1\textit{MHz} making use of estimation and measurements of the signature of particles having high $E_{T},p_{T}$ through the Muon stations and the calorimeter. The main reason why this is done is because the read-out system for Run-I and Run-II cannot afford an incoming rate of 40\textit{MHz}. In the upgrade infact, all the read-out will be substituted and the \textit{L0} trigger will be replaced by a software one.}
-\item{\textit{High Level Trigger}: It consists in an \textit{Online} software trigger where the full reconstruction of tracks is performed. It's at this level that the tracking algorithms are run. After this step , data are stored and an \textit{Offline} reconstruction is also performed before providing usable object for data analysis. \footnote{During the Run-I, the seeding algorithm (called \textit{PatSeeding}) in the \textit{HLT} was run making use of the left-over hits coming from the \textit{Forward} algorithm. During Run-I the \textit{Seeding} was used in the online reconstruction in tandem with the \textit{Forward} as described before while in the offline reconstruction it was run as a \textit{Standalone} algorithm. For the Run-II ...to complete.}}
-\item{\textit{LHCb} luminosity is kept constant and it's reduced wrt other \textit{LHC} experiments of 2 orders of magnitudes. This reduction in luminosity is achieved thanks to the \textit{Luminosity Levelling} mechanism which avoid head-on collisions separating beams perpendicularly to the collision plane. This decrease of luminosity is mandatory since the main studies on \textit{b} and \textit{c} hadrons requires an extraordinary precise reconstruction of the production vertex of the $b\overline{b}$ pairs, so, the VErtex LOcator (\textit{VELO}) can be placed at very small distance from the interaction point limiting problems coming from radiation damages. \footnote{The decrease from the maximal designed luminosity of \textit{LHC} of $10^{34}cm^{-2}s^{-1}$ to the \textit{LHCb} one  $10^{32}cm^{-2}s^{-1}$ permit to reduce the average number of inelastic collisions from 27 to 0.53 and it allows to reconstruct with extraordinary precision the primary vertices.} }
+\item{Interesting events are selected by the \textit{L0 Trigger} which is implemented at the hardware level aiming to reduce the 40 \textit{MHz} bunch crossing rate to 1\textit{MHz} making use of estimations and measurements of the signature of particles having high $E_{T},p_{T}$ through the muon stations and the calorimeters. The main reason why this is done is because the read-out system of some of the detector for Run-I and Run-II can afford an incoming rate of 40\textit{MHz}. In the upgrade infact, all the read-out will be substituted and the \textit{L0} trigger will be replaced by a software one.}
+\item{\textit{High Level Trigger}: It consists in an \textit{Online} software trigger where the full reconstruction of tracks is performed. It's at this level that the tracking algorithms are run. After this step , data are stored and an \textit{Offline} reconstruction is also performed before providing usable object for data analysis. \footnote{During the Run-I, the seeding algorithm (called \textit{PatSeeding}) in the \textit{HLT} was run making use of the left-over hits coming from the \textit{Forward} algorithm. During Run-I the \textit{Seeding} was used in the online reconstruction in tandem with the \textit{Forward} as described before while in the offline reconstruction it was run as a \textit{Standalone} algorithm. For the Run-II online and offline reconstruction gives more or less the same results, but, anyway, the seeding algorithm remains one of the most important one.}}
+\item{\textit{LHCb} luminosity is kept constant and it's reduced wrt other \textit{LHC} experiments of 2 orders of magnitudes. This reduction in luminosity is achieved thanks to the \textit{Luminosity Levelling} mechanism which avoid head-on collisions separating beams perpendicularly to the collision plane. This reduction of luminosity is mandatory since the main studies on \textit{b} and \textit{c} hadrons require an extraordinary precise reconstruction of the production vertex of the $b\overline{b}$ pairs, so, the VErtex LOcator (\textit{VELO}) can be placed at very small distance from the interaction point limiting problems coming from radiation damages. \footnote{The decrease from the maximal designed luminosity of \textit{LHC} of $10^{34}$cm$^{-2}s^{-1}$ to the \textit{LHCb} one  $10^{32}$cm$^{-2}s^{-1}$ permit to reduce the average number of inelastic collisions from 27 to 0.53 and it allows to reconstruct with extraordinary precision the primary vertices.}}
 \end{itemize}
 
-The track reconstruction at \textit{LHCb} is decompose in different steps. The idea is to provide different containers containing different category of tracks. The track classification at \textit{LHCb} is done depending on the path the track goes through, so it's based on the datector's hit content as shown in Fig. ~\ref{figure:Tracks}.
+Regarding the upgrade, a brief description on what it consists is mandatory. A small recap is given in table ~\ref{table:runningCondition} where $\nu$ stands for the average number of visible interaction per bunch crossing.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+           & \textbf{Current \textit{LHCb}}          & \textbf{Upgrade \textit{LHCb}} \\ \hline
+Trigger    & Hardware(\textit{L0}) + Software(\textit{HLT}) & Only Software \\ \hline
+Read-Out rate & \textit{L0}: 40 \textit{MHz} to 1\textit{MHz} for readout & 40 \textit{MHz} Full software trigger for every 25 ns bunch crossing \\ \hline
+Luminosity & $4 \times 10 ^{32}$cm$^{-2}s^{-1}$ & $2\times 10^{33}$cm$^{-2}s^{-1}$ \\ \hline
+$\nu $ & 2 & 7.6 \\ \hline
+
+\end{tabular}
+\caption{Main differences between actual LHCb and the Upgrade}\label{table:runningCondition}
+\end{table}
+
+The reason why the \textit{L0} trigger will be removed in the upgrade is mainly because lot of analysis looking for deviations from Standard Model at \textit{LHCb} are limited by statistics and a fixed 1 \textit{MHz} readout at the upgrade running condition will be too limiting. 
+In order to reach the physics goals the \textit{LHCb} detector will be upgraded and the installation of the new detectors and the new read-out is expected to happen during the long shutdown 2 in 2018/2019.
+Each subdetectors will be replaced as shown in Fig.~\ref{Fig:Upgrade}.
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{Images/Upgrade.png} 
+  \caption[Caption for track type]{LHCb detector modifications for the upgrade. The Vertex Locator (\textit{VELO}), the Tracker Turicensis(\textit{TT}) and the 3 T-Stations are the main resposible of the tracking at LHCb. The Particle Identification is ensured by the two ring cherenkove detectors (\textit{RICH1} and \textit{RICH2}). The particles energy measurement is provided by the hadronic and the electromagnetic calorimeters (HCAL and ECAL respectively). The properties of the muons are then mainly determined by the Muon System.}\label{Fig:Upgrade}
+  \end{center}
+\end{figure}
+
+The actual \textit{VELO} will be replaced by a lightweight hybrid pixel detector capable of 40 $MHz$ readout at the upgrade luminosity which is 5 times greater than the actual one.
+%Regarding the \textit{PID} detectors (\textit{RICH1 and RICH2}), the aerogel from \textit{RICH1} will be removed and the opitcal system will be modified, and , of course , new photon detectors and read-out system will be implemented. Since the \textit{L0} trigger will not be present in the upgrade, so the Scintillating Pad detector and the pre-shower which basically initiate the electromagentic and hadronic shower and applies some vetoes to the events will be removed. The calorimeters will remain the same apart of the implementation of a new read-out. The muon system also will remain the same apart of a new read out and the removal of the first station (\textit{M1}).
+The trackers downstream and upstream the magnet will be also completely replaced. In particular, the tracker downstream the magnet which is now made by the so-called Inner tracker (\textit{IT}) and the Outer Tracker (\textit{OT}) will be replaced by the scintillating fibre tracker (\textit{SciFi}) detector to cope for the higher luminosity, higher occupancy and the 40 \textit{MHz} read-out.
+
+The current tracker system downstream the magnet implement two different technologies: the Outer Tracker system is based on gaseous straw tube detector for a global resolution on the bending plane (\textit{x-z}) of around 200 $\mu m$ while the Inner Tracker is made of Silicon microstrip detectors ( also employed for the \textit{Upstream Tracker} upgrade).
+The main reason why it's necessary to replace the \textit{IT} and \textit{OT} is related to the occupancy being too high in upgrade conditions and the fact that the electronics for them was designed for a 1MHz read-out rate. On top of that, the upgrade phase of LHCb is designed to collect an integrated luminosity greater than 50 fb$^{-1}$ and the detector itself is required to be resistent to the corresponding radiation damages.
+
+The adopted solution for the upgrade is the \textit{Scintillating Fibre Tracker}. The active and light-transport (also wavelenght shifter) material for the detector are the fibres themselves and the read-out is provided by arrays of silicon photomultipliers. The pitch of a single channel is designed to be equal to 250 $\mu m$ and each module of the detector consist of 5 (6 in central region) closed packed fibres ($\Phi \sim 250 \mu m$) layer.
+
+ 
+The \textit{SciFi} is placed in the downstream region with respect to the magnet (\textit{B} field lines direction are along the \textit{y} direction) consists of 3 stations. Each of them is composed by four layers of scintillating fibres detectors oriented in the so-called stereo \textit{x-u-v-x} configuration.\footnote{The x - layer contains fibres running perpendicularly to the x-z plane while the u(v) layers are exactly the same as the x-layers but rotated by a ``stereo'' angle of +5(-5) degree in order to reconstruct also the y-information of the tracks.}. The stereo configuration allows the reconstruction of tracks using their projection in the bending \textit{x-z} plane and the evaluation of the \textit{y} information is obtained through the combined measurement of the \textit{u-v} layers. 
+
+Each layer is divided in two halves (roughly \textit{y>0} and \textit{y<0}) equipped at \textit{y=0} by a mirror to improve the light yield in the higher occupancy area (the region close to the beam pipe).
+
+A skematic view of how a single station look like is given in ~\ref{Fig:SciFi} and it will consists of around 10.000 \textit{Km} of fibres and 560.000 read-out channels distributed over the 12 layers (6 \textit{x}, 3\textit{u}, 3\textit{v}).
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{Images/ModuleSciFi.png} 
+  \caption[Caption for track type]{Sketch of a single station of the SciFi tracker. The Station is made of 4 different layers in x-u-v-x configuration, the central region is mirrored and the read-out is done at the edges of the layers far from the beampipe.}\label{Fig:SciFi}
+  \end{center}
+\end{figure}
+
+The requirements for the \textit{SciFi} to satisfy the physics program of \textit{LHCb} can be listed in few concise points: \begin{itemize} \item{The hit efficiency has to be $\sim 99 \%$}\item{The noise cluster rate should be less than 10$\%$, reason why the \textit{SiPM} read-out has to be cooled}\item{The position resolution in the bending plane has to be $\sim 100 \mu m$ and the material budged has to be as reduced as possible $\frac{X}{X_{0}}<1 \%$ per detector layer}\item{The readout has to be performed at 40 \textit{MHz}}\item{The tracker has to be efficient for at least an integrated luminosity of 50 $fb^{-1}$} \item{The \textit{SciFi} tracker has to replace the actual one, so additional goemetrical constraints must be satisfied.}\end{itemize}
+
+\subsection{Pattern recognition at LHCb}
+
+%Regarding the track reconstruction in the standalone seeding algorithm the most important thing is the geometrical arrangements of the module which is the same as the current detector due to geometrical contraints. A detailed description of the \textit{SciFi} tracker can be found in ~\cite{TDR_SciFi}. 
+
+%%%Track Reconstruction
+The track reconstruction at \textit{LHCb} is performed in different steps. The idea is to firstly reconstruct tracks collecting list of hits from sub-detectors following some given criteria (track model in a subdetector, expected behavior of tracks in between one detector and another). Each of the found track is then stored in a temporary container and a global fit and finer treatment is performed afterwards (\textit{Kalman Filter} and \textit{Ghost and Clone killer}). We will then refer to the first step as \textit{pattern recognition} and the second one as the \textit{final fit}. 
+
+The pattern recognition at \textit{LHCb} is done depending on the path the track goes through, so it's based on the datector's hit content as shown in Fig. ~\ref{figure:Tracks}.
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=0.5\textwidth]{Images/tracktype.png} 
@@ -123,87 +180,67 @@ The track reconstruction at \textit{LHCb} is decompose in different steps. The i
 \end{figure}
 
 \footnotetext{ z- is the beam axis direction and the y axis is the B field line direction.}
-In the tracking system of \textit{LHCb} each track type is reconstructed by a proper algorithm and a schematic layout of how things work is given in table \ref{Table:tracks}.
+In the tracking system of \textit{LHCb} each track type is reconstructed by a dedicated algorithm and a schematic layout of how it is done is given in table \ref{Table:tracks}.
 \begin{table}[h]
 \begin{tabular}{|l|l|l|l|l|}
 \hline
-Track Type & Used Detector &Algorithm(s)& Input&  Output    \\ \hline
+Track type & Used detector &Algorithm(s)& Input tracks&  Output tracks    \\ \hline
 \begin{tabular}[|l|]{@{}l@{}}Velo Tracks\\ or Velo-Segment\end{tabular} & Velo & Velo algorithm  & \multicolumn{1}{|l|}{/} & Velo         \\ \hline
-\begin{tabular}[|l|]{@{}l@{}}Seed Tracks\\ or T-Tracks\end{tabular}     & \begin{tabular}[|l|]{@{}c@{}}T-Stations\\ (SciFi in upgrade)\end{tabular}                                                                                    & \multicolumn{1}{|l|}{Seeding algorithm}                                                                                             & \multicolumn{1}{|l|}{\begin{tabular}[|l|]{@{}l@{}}Allow the possible usage of\\ the leftover hits of forward.\\ If Not: Standalone Algorithm\end{tabular}} & Seed  \\ \hline
-\multicolumn{1}{|l|}{\multirow{2}{*}{Long Tracks (1)}}                  & \multirow{2}{*}{\begin{tabular}[l]{@{}l@{}}Velo + TT + T-Stations\\ (TT $\rightarrow$ UT  \\ T-Stations $\rightarrow$ SciFi \\ in upgrade)\end{tabular}} & \begin{tabular}[|l|]{@{}l@{}} 1) Forward tracking:\\ Search in T-Stations knowing \\ Velo-Segment (adding also TT)\end{tabular}         & Velo Container               & \multirow{2}{*}{Long} \\ 
-\multicolumn{1}{|l|}{}                                              &                                                                                                                                                            & \begin{tabular}[|l|]{@{}l@{}} 2)Matching algorithm:\\ Merge T-Tracks with Velo-Segment\\ 3)BestSelector= Forward+Matching\end{tabular} & Velo and Seed Containers                                                                                                                               &                       \\ \hline
-Downstream Tracks                                                     & \multicolumn{1}{|l|}{\begin{tabular}[|l|]{@{}l@{}}T-Stations and TT\\ (SciFi and UT)\end{tabular}}                                                             & \begin{tabular}[|l|]{@{}l@{}}Downstream algorithm:\\ Use T-Tracks and\\ add TT (UT upgrade) hits\end{tabular}                         & Seed Container                                                                                                                                         & Downstream            \\ \hline Upstream Track                                                        & \multicolumn{1}{|l|}{Velo and TT} & \begin{tabular}[|l|]{@{}l@{}}Upstream algorithm:\\ Use Velo segment and \\ add TT( UT upgrade) hits\end{tabular} & Velo Container &  Upstream \\ \hline \end{tabular}
-\label{Table:tracks}
+\begin{tabular}[|l|]{@{}l@{}}Seed Tracks\\ or T-Tracks\end{tabular}     & \begin{tabular}[|l|]{@{}c@{}}T-Stations\\ (SciFi in upgrade)\end{tabular}                                                                                    & \multicolumn{1}{|l|}{Seeding algorithm}                                                                                             & \multicolumn{1}{|l|}{\begin{tabular}[|l|]{@{}l@{}}Allow the possible \\usage of the \\leftover hits of forward.\\ If Not: Standalone Algo\end{tabular}} & Seed  \\ \hline
+\multicolumn{1}{|l|}{\multirow{2}{*}{Long Tracks (1)}}                  & \multirow{2}{*}{\begin{tabular}[l]{@{}l@{}}Velo + TT + T-Stations\\ (TT $\rightarrow$ UT  \\ T-Stations $\rightarrow$ SciFi \\ in upgrade)\end{tabular}} & \begin{tabular}[|l|]{@{}l@{}} 1) Forward tracking:\\ Search in T-Stations knowing \\ Velo-Segment (adding also TT)\end{tabular}         & Velo               & \multirow{2}{*}{Long} \\ 
+\multicolumn{1}{|l|}{}                                              &                                                                                                                                                            & \begin{tabular}[|l|]{@{}l@{}} 2)Matching algorithm:\\ Merge T-Tracks with Velo-Segment\\ 3)BestSelector= Forward+Matching\end{tabular} & Velo and Seed& \\ \hline
+Downstream Tracks & \multicolumn{1}{|l|}{\begin{tabular}[|l|]{@{}l@{}}T-Stations and TT\\ (SciFi and UT)\end{tabular}}& \begin{tabular}[|l|]{@{}l@{}}Downstream algorithm:\\ Use T-Tracks and\\ add TT (UT upgrade) hits\end{tabular}& Seed& Downstream            \\ \hline Upstream Track & \multicolumn{1}{|l|}{Velo and TT} & \begin{tabular}[|l|]{@{}l@{}}Upstream algorithm:\\ Use Velo segment and \\ add TT( UT upgrade) hits\end{tabular} & Velo Container &  Upstream \\ \hline \end{tabular}
+\caption{Tracking algorithm at LHCb}\label{Table:tracks}
+
 \end{table}
 
-All the tracks produced by the algorithms provided in Table~\ref{Table:tracks} are reprocessed by the \textit{Kalman Filter} which will reprocess the tracks assigning a sort of \textit{univoque} $\chi^{2}$ to the track and will refit them taking into account the magnetic field map and the material budget computing for instance corrections due to multiscattering. From a more technical point of view, each track is defined by a vector of track state $\left( x, y, t_{x}, t_{y} , \frac{q}{p} \right)_{z}^{T}$ which is then propagated by a $5$x$5$ matrix through the detector considering the interactions and the B-Field map. So, the main goal of the listed algorithm in Table~\ref{Table:tracks} is to provide a preliminary tracks set given by compatible hits and only at the end of the algotithms they are converted into a vector of track states.
+All the tracks produced by the algorithms provided in Table ~\ref{Table:tracks} are processed afterwards by the \textit{Kalman Filter} which fit the tracks assigning a sort of \textit{univoque} $\chi^{2}$ to the track (each algorithm infact has an internal track model parametrisation resultin in different $\chi^{2}$ computation) taking into account the \textit{B(x,y,z)} field map and the material budget computing for instance corrections due to multiscattering. 
 
-Going back to the upgrade, a brief description on what it consists is mandatory. A small recap is given in table \ref{table:runningCondition}
-\begin{table}[h]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-           & Current \textit{LHCb}          & Upgrade \textit{LHCb} \\ \hline
-  Trigger    & Hardware(\textit{L0} + Software(\textit{HLT} & Only Software \\ \hline
-Luminosity & $4 \cdot 10 ^{32} cm^{-2}s^{-1}$ & $2\cdot 10^{33} cm^{-2}s^{-1}$ \\ \hline
-$\mu=< \frac{Visible \quad Interactions}{Bunch Crossing}>$ & 1.7 & 5.2 \\ \hline
-Hardware trigger & 40 \textit{MHz} to 1\textit{MHz} & 40 \textit{MHz} Full software trigger for every 25 ns bunch crossing \\ \hline
-\end{tabular}
-\label{table:runningCondition}
-\end{table}
-The reason why the \textit{L0} trigger will be removed in the upgrade is mainly because lot of analysis looking for deviations from Standard Model at \textit{LHCb} are limited by statistics and a fixed 1 \textit{MHz} readout at the upgrade running condition will be too limiting. 
-In order to reach the physics goals the \textit{LHCb} detector will be upgraded and the installation of the new detectors and read out is expected to happen during the long shutdown 2 in 2018/2019.
-Each subdetectors will be replaced as shown in Fig.\ref{Fig:Upgrade}
-\begin{figure}[h]
-  \begin{center}
-    \includegraphics[width=0.5\textwidth]{Images/Upgrade.png} 
-  \caption[Caption for track type]{Detector modifications for the upgrade}
-  \label{Fig:Upgrade}
-  \end{center}
-\end{figure}
+From a more technical point of view, in the \textit{Kalman Filter} and in the \textit{LHCb} framework each track is defined by a vector of track state $\left( x, y, t_{x}, t_{y} , \frac{q}{p} \right)_{z}^{T}$ ($t_x = \frac{dx}{dz},t_y=\frac{dy}{dz}$) which is then propagated by a $5$x$5$ matrix through the detector considering the interactions and the B-Field map \footnote{The formalism is quite similar to accelerator physics.}. So, the main goal of the listed algorithm in Table ~\ref{Table:tracks} is to provide a preliminary set of tracks composed by compatible hits in a given sub-detector and only at the end of the algotithms the found tracks are converted into a vector of track states, which can be handled by the \textit{Kalman Filter}.
 
-The actual \textit{VELO} will be replaced by a lightweight hybrid pixel detector capable of 40 $MHz$ readout at the upgrade luminosity which is 5 times greater than the actual one.
-%Regarding the \textit{PID} detectors (\textit{RICH1 and RICH2}), the aerogel from \textit{RICH1} will be removed and the opitcal system will be modified, and , of course , new photon detectors and read-out system will be implemented. Since the \textit{L0} trigger will not be present in the upgrade, so the Scintillating Pad detector and the pre-shower which basically initiate the electromagentic and hadronic shower and applies some vetoes to the events will be removed. The calorimeters will remain the same apart of the implementation of a new read-out. The muon system also will remain the same apart of a new read out and the removal of the first station (\textit{M1}).
-The trackers downstream and upstream the magnet will be also completely replaced. In particular, the tracker downstream the magnet which is now made by the so-called Inner tracker \textit{IT} and the Outer Tracker\textit{OT} will be replaced by the scintillating fibre (\textit{SciFi}) detector to cope for the higher luminosity, higher occupancy and the 40 \textit{MHz} rxead-out.
-The current tracker system downstream the magnet implement two different technologies: the Outer Tracker system is based on gaseous straw tube detector for a global resolution on the bending plane (\textit{x-z}) of around 200 $\mu m$ while the Inner Tracker is made of Silicon microstrip detectors ( also employed for the \textit{Upstream Tracker} upgrade).
-The main reason why it's necessary to replace the Inner and Outer tracker is related to the Ocuupancy being too high in upgrade conditions and the fact that the electronics for them was designed for a 1MHz read-out rate. On top of that, the upgrade phase of LHCb is designed to collect an integrated luminosity greater than 50 $fb^{-1}$ and the detector itself is required to be resistent to the corresponding radiation damages.
-The adopted solution for the upgrade is the \textit{Scintillating Fibre Tracker}. The active and light-transport (also wavelenght shifter) material for the detector are the fibres themselves and the read-out is provided by arrays of Silicon photomultipliers. The pitch of a single channel is designed to be equal to 250 $\mu m$ and each module of the detector consist of 5 (6 in central region) closed packed fibres ($\Phi \sim 250 \mu m$) layer.
-For what concern the track reconstruction in the standalone seeding algorithm the most important thing is the geometrical arrangements of the module which is the same as the current detector due to geometrical contraints. A detailed description of the \textit{SciFi} can be found in ~\cite{TDR_SciFi}. The magnet downstream area consists of 3 stations and each of them is composed by 4 layers of Scintillating Fibres detectors disposed in the so-called stereo \textit{x-u-v-x} configuration.\footnote{The x - layer contains fibres running perpendicularly to the x-z plane while the u(v) layers are exactly the same as the x-layers but rotated by a ``stereo'' angle of +5(-5) degree in order to reconstruct also the y-information of the tracks.}. The stereo configuration allows the reconstruction of tracks using their projection in the bending \textit{x-z} plane and the evaluation of the \textit{y} information from the combination of the \textit{u-v} one. Each layer is divided in two halves (roughly \textit{y>0} and \textit{y<0}) equipped at \textit{y=0} by a mirror.
-A skematic view of how the detector look like is given in ~\ref{Fig:SciFi} and it will consists of around 10.000 \textit{Km} of fibres and 560.000 read-out channels distributed over the 12 layers (6 \textit{x}, 3\textit{u}, 3\textit{v}).
-
-The requirements for the SciFi can be listed in few concise points: the hit efficiency has to be $\sim 99 \%$, the noise cluster rate should be less than 10 $\%$ \footnote{Cooling system is need for the read-out infact}, the position resolution in the bending plane has to be $\sim 100 \mu m$ and the material budged has to be as reduced as possible $\frac{X}{X_{0}}<1 \%$ per detector layer. The readout has to be performed at 40 \textit{MHz} and it must operate efficiently for an $\mathcal{L}_{integrated}$ = 50 $fb^{-1}$ which is set as default in the simulation of events.
-\begin{figure}[h]
-  \begin{center}
-    \includegraphics[width=0.5\textwidth]{Images/ModuleSciFi.png} 
-  \caption[Caption for track type]{Sketch of a single station of the SciFi tracker. The Station is made of 4 different layers in x-u-v-x configuration, the central region is mirrored and the read-out is done at the edges of the layers far from the beampipe.}
-  \label{Module}
-  \end{center}
-\end{figure}
-At the end each layer will look like the one in Figure: \ref{Module}
 \subsection{Hybrid Seeding Algorithm}
-Since no data is available at the upgrade condition, a huge effort must be done to reproduce the real data taking conditions. This relies in different steps in the simulation. Without going into details we can make a short summary of how the \textit{LHCb} software is working in order to provide, for a given algorithm the final efficiencies. In this document efficiencies will be given for a simulated sample of  $B_s\rightarrow \phi \phi$ event.
+Since no real data is available at the upgrade condition, a huge effort must be done to reproduce the real data taking conditions and what the real output of the detector would be. This task is obtained through different steps in the simulation. Without going into details we can make a short summary of how the \textit{LHCb} software is working in order to provide, for a given algorithm the final efficiencies. In this document efficiencies will be given for a simulated sample of  $B_s\rightarrow \phi\left( K^{+}K^{-}\right) \phi \left( K^{+}K^{-} \right)$ event.
 \begin{itemize}
-\item{The interactions are simulated by the \textit{Pythia} software where the 25 \textit{ns} bunch crossing, the $\sqrt{s}= 14$ \textit{TeV} centre-of mass energy collision and the $\nu$\footnote{Average number of visible interaction per bunch crossing}\textit{=7.6} and the $B_s\rightarrow \phi \phi$ decay chain are provided.}
-\item{Interactions in the material and geometrical acceptance effects are simulated inside the \textit{Gauss} package (interactions are done by \textit{Geant} software). The output of this step is the so-called \textit{MCHit}, and collections of \textit{MCHits} provides the so-called \textit{MCParticles}}.
-\item{The read-out, the \textit{SiPm} response , the light attenuation in the fibres and the \textit{Clusterization} together with the data encoding is simulated by the \textit{Boole} package.}
-\item{Once the digitization is done, the resulting objects that pattern recognition algorithm can handle are the so caller \textit{PrHit} (in the SciFi context) and making use of them one can finally reconstruct tracks}
-\item{In each of the previous steps one can store the \textit{Linkers} which allows to figure out the list of \textit{MCHit} generated by a \textit{MCParticle} and which of them actually ends up into a cluster, and then into a \textit{PrHit}. 
-In such a way one can define the \textit{reconstructible}\footnote{For the SciFi a reconstructible track is defined if it leaves at least 1 x-layer hit in each of the three stations together with at least one hit in the u or v layer for each of the three stations} tracks and compare them with the output of the pattern recognition algorithm (\textit{reconstructed} tracks) in order to provide tracking efficiencies numbers.}
+\item{The \textit{Gauss} application is responsible of the physics simulation, starting from the $pp\rightarrow b \overline{b}$ production (package doing that is called \textit{Pythia}) given the 25 \textit{ns} bunch crossing, the $\sqrt{s}= 14$ \textit{TeV} centre-of mass energy collision and the $\nu$\footnote{Average number of visible interaction per bunch crossing}\textit{=7.6} and the subsequent $B_s\rightarrow \phi\left( K^{+}K^{-}\right) \phi \left(K^{+} K^{-} \right)$ (package \textit{EvtGen}) decay chain are provided. Inside \textit{Gauss} also the interaction of the produced final states in the detector is simulated by the \textit{Geant} package. At this level of the simulation the so-called \textit{MCHits} are produced, corresponding to the energy deposition in the active material of the detector. A true particle is then given by a certain set of \textit{MCHits}.}
+%\item{Interactions in the material and geometrical acceptance effects are simulated inside the \textit{Gauss} package (interactions are done by \textit{Geant} software). The output of this step is the so-called \textit{MCHit}, and collections of \textit{MCHits} provides the so-called \textit{MCParticles}}.
+\item{The read-out, the \textit{SiPm} response , the light attenuation in the fibres and the \textit{Clusterization} together with the front-end boards ( data - encoding ) is simulated by the \textit{Boole} application. The output of this step are the \textit{Clusters} containing binary information about the corresponding position in the tracker.}
+\item{Once the digitization is done, the resulting objects that pattern recognition algorithm can handle are the so called \textit{PrHit} (in the SciFi context) and making use of them one can finally reconstruct tracks. The \textit{PrHit} are obtained converting the binary information of the \textit{Clusters} into a geometrical information usable for pattern recognition. The track reconstruction is done inside the \textit{Brunel} application.}
+\item{In each of the previous steps one can store the \textit{Linkers} which allows to figure out the list of \textit{MCHit} associated to a true particle which are finally converted to cluster (so into a \textit{PrHit}). 
+Thanks to them one can define the \textit{reconstructible}\footnote{For the SciFi a reconstructible track is defined if it leaves at least 1 x-layer hit in each of the three stations together with at least one hit in the u or v layer for each of the three stations} tracks and compare them with the output of the pattern recognition algorithm (\textit{reconstructed} tracks) in order to provide tracking efficiencies numbers.}
 \end{itemize}
 
+The most important figures of merit classifying a pattern recognition algorithm are the following:\begin{itemize}
+\item{\textit{Reconstruction efficiency} : how many of the tracks we find in the algorithm are actually tracks we expect to reconstruct? For instance,for analysis requiring \textit{n} final states, the yield will be reduced by a factor $\epsilon ^{n}$.}
+\item{\textit{Ghost rate} : how many tracks we reconstruct are associated to pesudo-random combination of hits?. This is important because we don't want to recontruct fake tracks and in addition we don't want to feed the \textit{Kalman Filter} with too many fake tracks for timing constraints.}
+\item{\textit{Timing} : how fast we are finding the tracks. This is particualry important since in the upgrade the tracking algorithms has to be run online at an incoming rate of \textit{40 MHz}.}
+
+
 The work done from October 2014 to now is encoded in this framework. 
-At the beginning i was involved in the debugging of the simulation code, putting my hands in the detector description, the simulation of the clusterisation and the encoding/decoding of the clusters. Some problems in the software were infact not well understood passing from the default detector description (the one of the technical design report \cite[SciFiTDR]) to the new one where bigger gaps between channels were simulated and a more realistic model of clusterisation were implemented. In that context my effort was fundamental (i took part of the \textit{DILBERT} task force for the software fixing and bug correction) to recover part of the loss in efficiency and we finally provide a stable simulation of the detector from which the development of a new pattern recognition algorithm was possible. In the meanwhile i also took part to the \textit{Test Beam} data analysis aiming to measure the radiation lenght of the fibres doing light yield measurements scanning along the active material at different distances from the read-out and also evaluating the dependency of the cluster size against track incident angles. I also analyse some of the data from the test beam to study the cluster size properties as a function of the incident angle of tracks in the detector in order to tune the simulation to be the most reliable possible. \cite{AnalysisOrsay}\cite{LalTestBeam}.
-The results of how the efficiencies for the seeding algorithm change in time will be shown at the end of this section to highlight my contribution to the upgrade \textit{SciFi simulation and reconstruction} working group.
+
+At the beginning i was involved in the debugging of the simulation code, putting my hands in the detector description, the simulation of the clusterisation and the encoding/decoding of the clusters  ( basically the \textit{Boole} and \textit{Brunel} applications and packages). 
+Some problems and inefficiencies in the software were infact not well understood passing from the default detector description (the one of the technical design report ~\cite{SciFiTDR}) to the new one where bigger gaps between channels were simulated, together with a new shape of detector layers, and a more realistic model of the clusterisation were implemented. 
+
+In that context my effort was fundamental (i took part of the \textit{DILBERT} task force for the software fixing and bug correction) to recover part of the loss in efficiency and we finally provide a stable version of the simulation of the detector from which the development of a new pattern recognition algorithm becomes possible. 
+
+In the meanwhile i also took part to the \textit{Test Beam} data analysis aiming to measure the radiation lenght of the fibres doing light yield measurements scanning along the active material at different distances from the read-out and also evaluating the dependency of the cluster size against track incident angles. I also analyse some of the data from the test beam to study the cluster size properties as a function of the incident angle of tracks in the detector in order to tune the simulation to be the most reliable possible. ~\cite{AnalysisOrsay}~\cite{LalTestBeam}.
+The results of how the efficiencies for the seeding algorithm change in time will be shown at the end of this section to highlight my contribution to the upgrade \textit{SciFi simulation and reconstruction} working group. I presented regularly my work in the internal \textit{SciFi simulation and reconstruction} working group and i presented once the results of the group in the parallel session of the \textit{LHCb week}. 
 
 \subsection{Improvements apported to the algorithm}
-Several trials in changing the previous algorithm (named here as \textit{Old}) has been done and we finally decide to develop a new one from scratch and the developing of the new one started from very basics things. First of all we need to separate different aspects of the algorithm: 
+Several trials in changing the previous algorithm (named here as \textit{Old}) has been done and we finally decide to develop a new one from scratch, once we figured out the limitations of the previous one. The developing of the new one started from very basics things related to track properties, detector occupancy and requirements on tracks.. First of all we need to separate different aspects of the algorithm: 
 \begin{itemize}
+\item{The way we collect the hits to generate tracks.}
 \item{The way we fit the tracks.}
-\item{The way we collect the hits to generate tracks}
-\item{The tolerances we allow in both the fitting and the collecting hits}
-\item{The requirements we put on tracks for their storage and clone/ghost killing}
+\item{The tolerances we allow in both the fitting and the hit search.}
+\item{The requirements we put on tracks for their storage and clone/ghost killing.}
 \end{itemize}.
-In order to do that, several tools has been developed: one aiming to extract the \textit{Monte-Carlo} information of tracks before the clusterisation step in order to evaluate the track properties.\footnote{Thanks to that an unofficial tracking algorithm running over true hit position was developped to figure out which is the best track model to use in order to fit the tracks going through the \textit{SciFi} and also to have an estimation of ``how much'' one can squeeze some search windows without starting to loose to much in efficiency.} The strategy adopted is then the following: instead of using a look-up table for the \textit{B} field information one can directly use the \textit{B}-field effect on tracks parametrising their motion by some fixed constants reflecting the magnetic field behavior.\footnote{The B field in the Sci-Fi tracker region is a fringe field which is not easly parametrisable, but still, some caractheristic behavor can be extracted.}
+In order to do that, several tools have been developed: one of them, for instance, aims to extract the \textit{Monte-Carlo} information of tracks before the clusterisation step in order to evaluate the track properties and their behavior in the \textit{SciFi} stations.\footnote{Thanks to that an unofficial tracking algorithm running over true hit position was developped to figure out which is the best track model to use in order to fit the tracks going through the \textit{SciFi} and also to have an estimation of ``how much'' one can squeeze some search windows without starting to loose to much in efficiency.} The strategy adopted once the track property was extracted was then the following: instead of using a look-up table for the \textit{B} field information one can directly use the \textit{B}-field effect on tracks parametrising their motion by some fixed constants reflecting the magnetic field behavior.\footnote{The B field in the Sci-Fi tracker region is a fringe field which is not easly parametrisable, but still, some caractheristic behavior can be extracted.}
+
+The main limitations, or problems, of the previous algorithm can be summarized in few points \begin{itemize} \item{It was trying to find everything at once, meaning that it was not disentangling the cases where tracks are easy to finde to the cases where the tracks are harder to find. Harder to find stands for find it paying an high prize in terms of ghost rate.} \item{The tracks behavior in the \textit{SciFi} tracker was roughtly parametrised.} \item{The different detector area were treated in the same way even if where we expect a lower efficiency we can loosen the cuts for the track selection.}
+
+The strategy adopted for the track search is to \textbf{split the algorithm in nested sub blocks} following the philosophy of the \textit{projective tracking} and \textit{progressive cleaning} of the tracking environment. Since the detector is divided into two halves (\textit{y>0} and \textit{y<0}) a natural choice is to split the algorithm in a first track search in the upper modules of the stations and a second search in the lower half. From \textit{MC} study we figure out that the numebr of tracks going from the upper to the lower half is a negligible fraction of the full set of tracks \textit{O(0.1 \%)}. 
+Inside the upper(or lower) half search we run the second main block of the algorithm 3 times whcih we will call here \textit{case} since for each of this run different configurations are applied. Each of this \textit{3 cases} is dependent on the previous one since at the end of each of them (only the first and the second) we mark the hits of the found tracks using some specific criteria, resulting in a progressive cleaning of the tracking environment moving from one case to the following one.
+The idea for the first case is to find tracks with high momentum which are easy to find since the kick they get in the bending plane from the \textit{B-field} both in the \textit{SciFi} tracker region and in the propagation between its origin vertex and the \textit{SciFi} is relatively small ($\propto \frac{qB}{p}$). 
+Hits are collected in a relatively small search windows under the infinite momentum assumption. The infinite momentum assumption relies on the fact that very high momentum tracks just goes straight even in the higher magnetic field region, resulting in a linear pointing to the origin vertex. Selecting \textit{MC} hit information and plotting the position of the true hit on the \textit{1^{st}}
 
 
 
@@ -231,6 +268,6 @@ In order to do that, several tools has been developed: one aiming to extract the
 \bibitem{Blake2} LHCb collaboration, \textit{Letter of Intent for the LHCb Upgrade}, CERN-LHCC-2011-001, March 2011.
 \bibitem{Blake3} LHCb collaboration, \textit{Framework TDR for the LHCb Upgrade}, CERN-LHCC-2012-007, May 2012.
 \bibitem{Blake4} LHCb collaboration, \textit{LHCb Scintillating Fibre Tracker Technical Design Report}, CERN-LHCC-2014-001; LHCb TDR 15.
-
+\end{thebibliography}
 
 \end{document}
