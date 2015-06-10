@@ -220,7 +220,7 @@ The work done from October 2014 to now is encoded in this framework.
 At the beginning i was involved in the debugging of the simulation code, putting my hands in the detector description, the simulation of the clusterisation and the encoding/decoding of the clusters  ( basically the \textit{Boole} and \textit{Brunel} applications and packages). 
 Some problems and inefficiencies in the software were infact not well understood passing from the default detector description (the one of the technical design report ~\cite{SciFiTDR}) to the new one where bigger gaps between channels were simulated, together with a new shape of detector layers, and a more realistic model of the clusterisation were implemented. 
 
-In that context my effort was fundamental (i took part of the \textit{DILBERT} task force for the software fixing and bug correction) to recover part of the loss in efficiency and we finally provide a stable version of the simulation of the detector from which the development of a new pattern recognition algorithm becomes possible. 
+In that context my effort was fundamental (i took part of the \textit{DILBERT} task force for the software fixing and bug correction) to recover part of the loss in efficiency and we finally provide a stable version of the simulation of the detector from which the development of a new pattern recognition algorithm becomes possible. The discrepancies with the \textit{TDR} values were understood and the explaination to them are mainly related to the increased dead region due to the gaps in between two different readout channels.
 
 In the meanwhile i also took part to the \textit{Test Beam} data analysis aiming to measure the radiation lenght of the fibres doing light yield measurements scanning along the active material at different distances from the read-out and also evaluating the dependency of the cluster size against track incident angles. I also analyse some of the data from the test beam to study the cluster size properties as a function of the incident angle of tracks in the detector in order to tune the simulation to be the most reliable possible. ~\cite{AnalysisOrsay}~\cite{LalTestBeam}.
 The results of how the efficiencies for the seeding algorithm change in time will be shown at the end of this section to highlight my contribution to the upgrade \textit{SciFi simulation and reconstruction} working group. I presented regularly my work in the internal \textit{SciFi simulation and reconstruction} working group and i presented once the results of the group in the parallel session of the \textit{LHCb week}. 
@@ -283,10 +283,35 @@ Each of the case is made by some different step:
 The idea for the first case is to find tracks with high momentum which are easy to find since the kick they get in the bending plane from the \textit{B-field} both in the \textit{SciFi} tracker region and in the propagation between its origin vertex and the \textit{SciFi} is relatively small ($\propto \frac{qB}{p}$). 
 Hits are collected in a relatively small search windows under the infinite momentum assumption given an hit found in the first layer.
 
-The infinite momentum assumption relies on the fact that very high momentum tracks motion is almost a straight line in the \textit{x-z} bending plane, resulting in a linear pointing to the origin vertex (\textit{(x,z)=(0,0)}).
+The infinite momentum assumption relies on the fact that very high momentum tracks motion is almost a straight line in the \textit{x-z} bending plane, resulting in a linear pointing to the origin vertex (\textit{(x,y,z)=(0,,0,0)}). Of course, not all the tracks originate from the primary vertex, but also for high momentum $K_s^{0}$ daughters for instance, the assumption remains quite good since the daughter pions are almost produced collinearly with the $K_{s}^{0}$. 
 
+There is a work in progress to document this word in order to provide a detailed description of all the techical implementation of the algorithm, to check the robustness of it and there are also some additional ideas to apport in order to get better efficiencies. Some the preliminary results obtained by running on 1000 events of $B_s \rightarrow \phi \phi$ are given in table ~\ref{table} comparing it to the evolution of the efficiencies for the \textit{upgrade seeding algorithm}.
 
-
+\begin{table}
+\centering 
+\begin{tabular}{|l|c|c|c|c}
+Track Type & TDR & Old Seeding & Old Seeding & Hybrid Seeding ($\Delta$) \\
+Type  & & (when i started) & (after task force) & \\
+\hline
+hasT                               & 66.1 \% &   53.2 \% & 64.1 \% & \textbf{76.7} \% (+12.1 \% )\\
+long                                & 82.2 \% &   73.0 \% & 79.9 \% & \textbf{88.3} \% (+8.4 \% )  \\
+long $>$ 5 GeV              & 88.7 \% &  82.6 \% & 87.2 \% & \textbf{92.8} \%  (+5.6 \% )  \\ \hline
+long fromB                      & 87.6 \% &  79.8 \% & 85.1 \% &\textbf{90.7} \%  (+5.6 \% )  \\
+long fromB $>$ 5 GeV    & 90.5 \% &  85.3 \% & 89.1 \% &\textbf{92.9} \% (+3.8 \% ) \\ \hline
+UT+T Strange                 & 79.2 \% &  68.5 \% & 76.7 \% & \textbf{86.9} \%  (+10.2 \% ) \\
+UT+T Strange $>$ 5GeV & 88.8 \% & 83.0 \% & 86.7 \% & \textbf{92.8} \%  (+6.1 \% ) \\ \hline
+noVelo+UT+T strange     & 80.4 \% & 70.1 \% & 78.2 \% & \textbf{87.2} \%   (+9.0 \% )  \\
+noVelo+UT+T strange $>$ 5GeV & 88.6 \% & 83.5 \% & 86.6 \% & \textbf{92.8} \% (+6.2 \% ) \\ \hline
+UT+T SfromDB                & 79.4 \% &  70.2 \% & 78.9 \% & \textbf{88.3} \% (+9.4 \% ) \\
+UT+T SfromDB $>$ 5GeV & 90.9 \% &   84.1 \% & 88.7 \% & \textbf{94.1} \% (+5.4 \% )\\ \hline
+noVelo+UT+TfromDB      & 78.9 \% & 68.4 \% & 81.1 \% & \textbf{85.8} \%  (+4.7 \% )\\
+noVelo+UT+T SfromDB $>$ 5GeV & 88.6 \% & 84.1 \% & 89.1 \% & \textbf{94.5} \% (+5.4 \% )\\ \hline
+Ghost Rate                      & 18.0 \% & 28.6 \% & 21.2 \% & \textbf{10.1} \%  (\textbf{-11.1} \%)  \\
+Hit Efficiency(hasT)         & 96.43 \% & 94.97 \% & 95.1 \% & \textbf{92.4} \% (-2.7 \% ) \\
+\end{tabular}
+\caption{Efficiencies numbers for the seeding algorithm since i started working on it.
+TDR numbers are obtained with a less realistic detector description and with a semplified clusterisation. The second column are the efficiencies values at October 2014 after the implementation of a new detector description and modifications in the digitisation algorithm. The third column are the efficiencies values after the correction of bugs we find in the code related to the detector description and the digitisation. The last column are the efficiencies for the seeding algorithm developed. Efficiencies here are given for 1000 events of simulated $B_{s}\rightarrow \phi(K^+K^-)\phi(K^{+}K^{-})$ accounting for tracks in $\eta [2,5]$ and without taking into account the electrons.}\label{table}
+\end{table}
 %\begin{itemize} 
 %\item Velo tracks and Velo segments : tracks are reconstructed as 3-D object and they fill the container of \textit{Velo tracks} and they are found under the assumpiton that all of them originate from the same point.
 %\item \textit{T-Tracks} , i.e., tracks going through the T-Station (\textit{SciFi} for upgrade) track reconstruction, it is done by the \textit{Seeding} algorithm and it runs as a standalone algorithm (alternitavely it can run on the leftover hits of the \textit{Forward} tracking). It's mainly useful to reconstruct tracks from long-lived particles such as $K_{s}^{0}$ and $\Lambda^{0}$  and in general tracks without \textit{Velo} segment. The \textit{seeding} algorithm ouput is used then to reconstruct \textit{Downstream} tracks, as well as \textit{long} tracks.
