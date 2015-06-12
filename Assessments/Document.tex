@@ -28,6 +28,7 @@
 %
 %%% Preamble
 \documentclass[paper=a4, fontsize=10pt]{scrartcl}
+\input{symbol}
 \usepackage[T1]{fontenc}
 \usepackage{fourier}
 \usepackage{caption}
@@ -91,9 +92,16 @@
 \date{}
 
 
+
 %%% Begin document
 \begin{document}
+
 \maketitle
+\begin{figure}
+\begin{center}
+\includegraphics[bb=-1000 1136 1900 -1000, scale=0.265]{Images/07b901e.eps}
+\end{center}
+\end{figure}
 \section{Overview of work done}
 A description of the work done during the first part of my PhD will be described in this document. It consists in two major blocks. The first one covers the physics analysis work and it has been performed between June 2014 and October 2014. At the same time i was completing the master degree in Ferrara Unviersity and as well as the NPAC master 2 at Paris Sud University. The second part of the document describes the work done in the context of the preparation for the upgrade of the LHCb detector. I worked on the improvement of a tracking as well as the development of a new algorithm: the \textit{Hybrid Seeding}.
 %The analysis work regards the study of double charm $B$ decays at \textit{LHCb} while the \textit{Seeding Algorithm for the LHCb upgrade} connsists in a software development project.
@@ -343,25 +351,82 @@ TDR numbers are obtained with a less realistic detector description and with a s
 %\item \textit{Upstream}  tracks are reconstructed throught the \textit{Upstrem} algorithm.
 %\item Long 
 
-\subsubsection{Analysis Work : $B^{0}\rightarrow D^{0}\overline{D}^{0}K^{\ast 0}$ analysis}
+\subsection{Analysis Work : $B^{0}\rightarrow D^{0}\overline{D}^{0}K^{\ast 0}$ analysis}
 The subject of my thesis is the study of double charm $B$ decays at LHCb. The planning of the analysis is the following: 
 \begin{itemize}
   \item{First observation of the $B.R.(B^{0}\rightarrow D^{0} \overline{D}^{0} K^{\ast 0})$ using as reference channel $B^{+}\rightarrow D^{0}\overline{D}^{0}K^{+}$. The main reason why we need a reference channel in this measurement is because lot of systematics effects on the measurement can be neglected in that way.
   \item{Amplitude analysis of $B^{0}\rightarrow D^{0} \overline{D}^{0} K^{\ast 0}$ using \textit{Dalitz analysis} techniques. The goal of this study is to figure out if some exotic resonance (\textit{XYZ}) states are present in the spectrum of the $D^{0}\overline{D}^{0}$ invariant mass.}
 \end{itemize}
-Unfortnuatly i was not able to work on that since October, but some preliminary study has been carried out and a clear idea of how to proceed has been put in place.
-In the preliminary study, i mainly worked on the reference channel,i.e $B^{+}\rightarrow D^{0}\overline{D}^{0}K^{+} +c.c.$, where $c.c.$ stands for charge conjugate decay channel.
- 
+Unfortnuatly i was not able to work on that since October, but some preliminary study has been carried out and a clear idea of how to proceed has been put in place as it will be described in the timetable for future plans section. Anyway a preliminary work as been done, mainly working on the reference channel,i.e $B^{+}\rightarrow D^{0}\overline{D}^{0}K^{+} +c.c.$, where $c.c.$ stands for charge conjugate decay channel.
+The first goal is the measurement of the branching of the doubly charmed decay ${ B }^{ 0 }\rightarrow { D }^{ 0 }\overline { { D }^{ 0 } } { K }^{ *0 } + C.C.$ (never measured and observed so far) using the ${ B }^{ + }\rightarrow { D }^{ 0 }\overline { { D }^{ 0 } } { K }^{ + } +C.C.$ as reference channel. The $D$ mesons are reconstructed through $\Dzch +c.c$.
+ The $LHCb$ experiment 2011 and 2012 data have been used for a total integrated luminosity of 3 $fb^{-1}$ .
+
+The $B$ mesons double charm decays have been introduced to explain the discrepancy between semileptonic branching ratio of $B$ decays and the observed number of charmed mesons in $B$ decays. Nowadays, there are some of the decay modes which has not been observed and the $\Bzch$ is one of them.
+More interest about this topology of decay concern the search of exotic structures above the open charm thresholds ($>2M_{D}$). In this mass region observed states and charmonium ($c\overline{c}$ bound states) predicted one are in disagreement and channels as the one considered here can lead interesting results in this domain.
+\subsubsection{${ B }\rightarrow { D }^{ (*)} { D }^{ (*) } { K }^{ (*) }$ Decays : topology and possible physics studies}
+
+At the quark level, the  $B^{+}\rightarrow D^{0} \overline{D}^{0} K^{+} +c.c.$ 
+$B^{0}\rightarrow D^{0} \overline{D}^{0} K^{\ast 0}  +  c.c.$ are generally described by the \textit{CKM} favoured weak transition $\overline{b} \rightarrow \overline{c} W^{+} \rightarrow \overline{c} c \overline{s}$ with additional $u\overline{u}$(or $d\overline{d} $ ) quarks coming from the \textit{QCD} vacuum.\footnote{These decay modes have been introduced due to the so called \textit{Charm counting puzzle}, i.e., theoretical discrepancy between the semileptonic branching ratio of $B$ decays with the number of charmed hadrons produced in $B$  decays.}  The relevant Feynman diagrams for such decay modes are shown in Fig \ref{quarks}.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[ width=0.5\textwidth]{Images/Feynman2.png}
+\caption{Leading order Feynman diagrams for $\Bpch$. On the right the colour-favoured mode ($u\overline{u}$ from \textit{QCD} vacuum can have 3 different colour assignment), on the left the colour suppressed mode (once the spectator quark colour is fixed, all the other are fixed). For $\Bpch$ both the modes can occur while for the $\Bzch$ only the suppressed mode can occurs.}\label{quarks}
+\end{center}
+\end{figure}
+
+
+Hadrons are colourless objects so the decay modes containing $D^{(\ast)}$ as the ones of interest are produced in majority through Internal (colour suppressed) and/or external modes (colour favoured). The reference channel occur through both of them while the $\Bzch$ only internally.
+
+The major study, which can be done through these decay modes, is the spectroscopy of $c\overline{s} $ and $c\overline{c}$ states. Resonances coming from  $D^{\ast}_{s} \rightarrow D^{(\ast)} K^{(\ast)}$ and  $X \rightarrow D^{(\ast)}D^{(\ast)}$ can be studied in 3-body decays through \textit{Dalitz Amplitude Analysis technique}. The physics case is more interesting for the second category.\footnote{ There are several discrepancies between observed states and predicted one in the $X \rightarrow D^{(\ast)}D^{(\ast)}$ and the nature of some of the observed one is not clear and unambiguously defined yet.}.
+The weak decay of interest is isospin conserving, so through isospin decomposition of amplitudes one can test the factorization theorem for three body decays and predict the branching ratio of other similar channels just measuring one of them.
+
+\subsubsection{Analysis performed}
+The goal of the analysis is to measure the $\mathcal{B.R.}$ of the  $\Bzch$. The way to perform this measurement is to refer the value to a reference channel. The master formula that one has to use to perform this measurement is \footnote{Several factors disappear}:
+
+\tiny \begin{equation}\label{1}
+\begin{split} 
+\frac { { N }_{ event }\left( B^0\rightarrow \overline{D}^0 D^0 K^{\ast 0} \right)  }{ { N }_{ event }\left( B^+\rightarrow \overline{D}^0 D^0 K^{+} \right)  }&  = \frac{\mathcal{L}}{\mathcal{L}}\times \frac{\sigma_{b\overline{b}}}{\sigma_{b\overline{b}}}   \frac { 2 \times { f }_{ { B }^{ 0 } } }{ 2 \times { f }_{ { B }^{ + } } } \times \frac { \mathcal{B.R.}\left( B^0\rightarrow \overline{D}^0 D^0 K^{\ast 0} \right)  }{ \mathcal{B.R.}\left(B^+\rightarrow \overline{D}^0 D^0 K^{+} \right)  } \times \frac { \mathcal{B.R.}\left( \Dzch \right)  }{ \mathcal{B.R.}\left( \Dzch \right)  }  \\   & \times \frac { \mathcal{B.R.}\left( \Dzbarch \right)  }{ \mathcal{B.R.}\left( \Dzbarch \right)  } \times \frac { \mathcal{B.R.}\left( \Kstch \right)  }{ 1 } \times \frac { { \varepsilon ^{\ast} }_{ tot } }{ {  \varepsilon^{\ast \ast} }_{ tot } }
+\end{split} 
+\end{equation}
+\normalsize where
+\tiny \begin{equation} \label{epsilon}
+ \varepsilon_{ tot } = \varepsilon_{geometric}\times \varepsilon_{trigger}\times \varepsilon_{Selection}
+\end{equation}
+\normalsize After a pre-selection\footnote{Based on the truth matched candidates in the Monte Carlo simulation} and using multivariate analysis (\textit{MVA} )technique\footnote{It relies in machine learning algorithms able to disentangle and classify a signal-like and background like sample knowing the values of a set of input variables.} it has been possible to obtain a rather clean sample of $B^{+}$ mesons in the $\Bpch$ as shown in fig \ref{Bmass}.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[ width=0.5\textwidth]{Images/BDTCatMassB.pdf}
+\caption{Reconstructed $B$ mass spectrum for  the 2011 and 2012 LHCb data in the $B^{\pm} \rightarrow D^{0} \overline{D}^{0} K^{\pm}$ channel. \it{Data Stripping + Filter} are the pre-selected \textit{B} candidates. The \it{BDTCat} is the \it{MVA} classifier which permits to separate background-like and signal-like candidates. The cut value \it{-0.15} has been chosen maximising the $\frac{S}{\sqrt{S+B}}$ figure of merit. (here $\sim 40$). The two peaks below the nominal $B^{+}$ mass  consists into reconstructed $D$ mesons from the strong $D^{\ast}\rightarrow D \pi$ decay where the $\pi$ is outside the LHCb acceptance.}\label{Bmass}
+\end{center}
+\end{figure}
+
+Using the sample of $B$ candidates obtained,  a preliminary Dalitz analysis has been done looking to the \textit{2-D} plot build using the $M^{2}_{A+B}$ and $M^{2}_{B+C}$ invariant masses distributions out of a 3-body decay $X\rightarrow ABC$ decay. The obtained plot is shown in Fig \ref{Dalitz}.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[ width=0.7\textwidth]{Images/Dalitz1.pdf}
+\caption{$\Bpch$ Dalitz Plot of $(D^{0}\overline{D}^{0})$ vs. $(D^{0}K^{+}+c.c.)$. The accumulation of events on the top-left part are related to $B^{+}\rightarrow \psi(3770)K^{+}\rightarrow D^{0}\overline{D}^{0} K^{+}$ in fact the $\psi(3770)$ has a $J=1$ and the corresponding typical pattern is the one that can be seen (two peaks). In addition another resonance is present in the central horizontal line and it correspond to a $J=1$ resonance due to $D^{*}_{s1}(2700)\rightarrow D^{0}K^{\pm}$.}\label{Dalitz}
+\end{center}
+\end{figure}
+
+\subsubsection{Preliminary results}
+The analysis is still on going and only a full amplitude analysis will tell if there are other structures in the $\Bpch$ and in the $\Bzch$. The first goal will be the measurement and the observation of the $\Bzch$. The presented work already highlights the presence of resonant structure in the $D^{0} \rightarrow \overline{D} ^{0} $ spectrum compatible with the $\psi (3770)$ (should be also present in $\Bzch$) and also a peak structure in the $D^{0} K^{+} $ invariant mass spectrum compatible with the $D^{*}(2700)^{+}$ (this should not appear in $\Bzch$ ). In addition , a very preliminary mass spectrum of the $B^{0}$ has been obtained (not shown here) with a roughly estimated yield of 300 events compatible with a predicted yield of $\sim 100 $ events.
+The preliminary results here have been also presented at the \textit{TESchool2014}, a summer school in high energy physisc in Ukraine last summer.
+Further details about this preliminary work and a complete description of the physics case can be found here ~\cite{Tesi}
 
 %Name algorithm , the mc hit 
 \section{Choice of Thesis Topic}
-I would like to introduce this section introducing my point of view about physics and how i see the role of a \textit{PhD} student in physics. Regarding the physics and in particular particle physics i think that it's extremely important in physics to deep our knowledges and understand deeply how physics processes works. This means that exploring the high energy regime of processes, i.e., study physics beyond the standard model is for me as interesting and exciting as exploring the low energy regime of particle physics where \textit{perturbation theory} (which is the theoretical framework for any kind of study of physics beyond the standard model) fails.
 
- In that context , i think that understand the bridge connecting particle physics and nuclear physics (i.e. the \textit{confinement} regime in \textit{QCD}) is fundamental as exploring physics beyond the standard model.
-On top of that a better knowledge of what happen in this low energy regime can lead to better theoretical uncertainty estimation in almost all the analysis involvig \textit{b} and \textit{c} hadrons. If those uncertainty can be reduced infact better  From this is easy to understand why i am interested in the study of exotic mesons and exotic structures and the large statistics of \textit{B} hadrons produced at \textit{LHCb} is an extraordinary
-The choice of the thesis topic regarding the study of exotic structures in invariant mass spectrum for double charmed states production in b decay is a topic which somehow is closer to nuclear physics, meaning that we exploit the way heavy quark combines togheter to generate a stable state, i.e, we try to understand the \textit{QCD} potential between quarks at low energy. Low energy \textit{QCD} is encoded in the standard model in an effective theory, the same as the \textit{Fermi} theory was for the weak interactions.
+I would like to introduce this section introducing my point of view about physics and how i see the role of a \textit{PhD} student in physics. Regarding the physics and in particular particle physics i think that it's extremely important in physics to deep our knowledges and understand how physics processes works. This means that exploring the high energy regime of processes, i.e., study physics beyond the standard model is for me as interesting and exciting as exploring the low energy regime of particle physics where \textit{perturbation theory} (which is the theoretical framework for any kind of study of physics beyond the standard model) fails.
 
+In that context , i think that understand the bridge connecting particle physics and nuclear physics (i.e. the \textit{confinement} regime in \textit{QCD}) is fundamental as exploring physics beyond the standard model.
+On top of that a better knowledge of what happen in this low energy regime can lead to better theoretical uncertainty estimation in almost all the analysis involvig \textit{b} and \textit{c} hadrons, since from the knowledge and the understanding of the potential between confined quarks are essencial to estimate for instance the \textit{bag} parameters, as well as know with a better precision the effects of final state interactions and all the \textit{QCD} corrections to apply in order to provide a precise theoretical prediction. 
+
+From this, it is easy to understand why i am interested in the study of exotic mesons and exotic structures rather than searching for physics beyond the standard model. The large statistics of \textit{B} hadrons produced at \textit{LHCb} is infact an extraordinary laboratory to also perform this studies and find new resonant states which are not ``conventional'' and thanks to the branching ratio measurement in double charm decays one can also infer on the dynamic properties of \textit{b} hadrons decay and investigate the final state interaction effects. Such kind of channels (double charmed), even if they are not the \textit{LHCb} priority, can also lead to very interesting discoveries and help at the same time the understanding of the \textit{QCD} effective theories.
 \section{Timetable for future}
+
+I am actually based at \textit{LaL} and i expect to move in \textit{Bristol University} in march 2016. Before that period, a public note regarding the new seeding algorithm will be produced and hopefully i will be able to perform the first task of my thesis, the \textit{Branching Ratio} measurement for $B^{0}\rightarrow D^{0}\overline{D}^{0}K^{\ast 0}$. As described in that section, the selection is done with a $BDT$ which is taking into account all the particles in the decay. This is something to avoid if one want to have a flat efficiency in the \textit{Dalitz} plane. In addition to that the usage of \textit{PID} variables in the \textit{BDT} will complicate the analysis when the systematics errors will be calculated because that variables are not well modelled in the \textit{MC}. In order to obtain similar efficiencies in the \textit{Dalitz} plane for the interesting and the reference channel, the idea is to train and test a new \textit{BDT} only for the $D^{0}$ selection without including the \textit{PID} variables for their daughters using as signal-like sample the truth matched \textit{MC} of the reference channel and as background like sample the sidebands of the $D^{0}$ in  $B^{+}\rightarrow D^{0} \pi^{+}$ data sample. In such a way we will have the same \textit{BDT} applied to the two $D$ daughters and a third global one using as input output of the $BDT$ classifier output of the $D^{0}$ ones and some topological and kinematical variables of the $K^{+}$ ($K^{\ast}$). In such a way we would expect to obtain the same efficiencies in the \textit{Dalitz} plane for the reference and the interest channel. This will be particularly important when the angular analysis will be performed in order to figure out the presence of some resonance in the \textit{Dalitz} plane.
+
+Regarding the tracking algorithm, i will also continue to work on that and try to improve it, but not full time involved as it has been untill now, and probably i will try to exploit the presence of additional bugs in the full simulation chain from time to time.
 %%% End document
 
 
@@ -370,11 +435,11 @@ The choice of the thesis topic regarding the study of exotic structures in invar
 \bibitem{Blake1} LHCb Collaboration, \textit{The LHCb Detector at the LHC, JINST 3(2008) S08005}
 \bibitem{Blake2} LHCb collaboration, \textit{Letter of Intent for the LHCb Upgrade}, CERN-LHCC-2011-001, March 2011.
 \bibitem{Blake3} LHCb collaboration, \textit{Framework TDR for the LHCb Upgrade}, CERN-LHCC-2012-007, May 2012.
-\bibitem{SciFiTDR} LHCb collaboration, \textit{LHCb Scintillating Fibre Tracker Technical Design Report}, CERN-LHCC-2014-001; LHCb TDR 15.
+\bibitem{SciFiTDR} LHCb collaboration, \textit{LHCb Scintillating Fibre Tracker Technical Design Repoxrt}, CERN-LHCC-2014-001; LHCb TDR 15.
 \bibitem{LetterIntent} LHCb collaboration, \textit{Letter of Intent for the LHCb Upgrade}, CERN-LHCC-2011-001
 \bibitem{AnalysisOrsay} Renato Quagliani, \textit{LaL internal presentation about the test beam},\emph{https://indico.lal.in2p3.fr/event/2506/contribution/1/material/slides/0.pdf}
+\bibitem{Tesi} Renato Quagliani, \textit{Master Degree thesis}, \emph{https://dbms.ilrt.bris.ac.uk/media/user/334129/tesi.pdf}
 
-\bibitem{LalTestBeam}
 \end{thebibliography}
 
 \end{document}
