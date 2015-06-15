@@ -103,25 +103,34 @@
 \end{center}
 \end{figure}
 \section{Overview of work done}
-A description of the work done during the first part of my PhD will be described in this document. It consists in two major blocks. The first one covers the physics analysis work and it has been performed between June 2014 and October 2014. At the same time i was completing a master degree in Ferrara Unviersity and as well as the NPAC master 2 at Paris Sud University. The second part of the document describes the work done in the context of the preparation for the upgrade of the LHCb detector. I worked on the improvement of a tracking as well as the development of a new algorithm: the \textit{Hybrid Seeding}.
+A description of the work done during the first part of my PhD will be described in this document. It consists of two major blocks. The first one covers the physics analysis work that has been performed between June 2014 and October 2014. The second part of the document describes the work done in the context of the preparation for the upgrade of the LHCb detector. I worked on the improvement of a tracking as well as the development of a new algorithm: the \textit{Hybrid Seeding}.
 %The analysis work regards the study of double charm $B$ decays at \textit{LHCb} while the \textit{Seeding Algorithm for the LHCb upgrade} connsists in a software development project.
 %\subsection{Track Reconstruction project : Seeding Algorithm for the LHCb Upgrade}
 Before getting to the heart of the work, an introduction about the tracking and the upgrade of the \textit{LHCb} detector is mandatory.
 \subsection{Indtroduction to LHCb and to the Upgrade Scintillating Fibre Tracker (SciFi).}
 The aim of the \textit{LHCb} detector ~\cite{Blake1} is to search for indirect signatures of New Physics through quantum loop induced processes through the measurements of strongly suppressed Standard Model processes.
 In this context precision plays a fundamental role. 
-Up to now, in \textit{LHCb} and other \textit{LHC} experiments, no strong deviations from the Standard Model (SM) have been observed and even if \textit{LHCb} has already provided the world's best measurements in many channels, it is still limited from improving them by statistics rather than systematics. For example, some measurements like the $\gamma$ of the \textit{CKM} matrix is still limited by statistics while lifetime measurements are already systematically limited. Due to this, the upgrade of the \textit{LHCb} forward spectrometer is mandatory in order to collect \textit{O(100)} times more data and reduce the statistics uncertainty of a factor 10 in order to be comparable with the theoretical one ~\cite{Blake2}~\cite{Blake3}. On top of that the huge amount of collected data expected for the upgrade at $\sqrt{s} = 14$ TeV will be $\sim 5$fb$^{-1}$ per year  will also strongly improve our actual knowledges about \textit{QCD} and the dynamic of \textit{b} and \textit{c} hadrons decays, which is crucial analyses for theoretical predictions and error estimations also on crucial analysis for the CP violation processes studied at \textit{LHCb}. A detailed description of the physics plan for the upgrade can be found in ~\cite{LetterIntent}
 
-The \textit{LHCb} detector is a single-arm forward spectrometer aiming to detect particles and their decay products, and as the \textit{b} in the name of the detector suggests, it is designed to study particles containing \textit{b} and \textit{c} quarks which are produced strongly boosted in the forward direction for symmetric energies of colliding protons at $\sqrt{s}$=14 TeV.%\footnote{The relevant process infact is the quark-gluon fusion which can be obtained in proton proton collisions only with strongly asymmetric PDFs.}
+Up to now, in \textit{LHCb} and other \textit{LHC} experiments, no strong deviations from the Standard Model (SM) have been observed and even if \textit{LHCb} has already provided the world's best measurements in many channels, it is still limited from improving them by statistics rather than systematics.
+The integrated luminosity during 2011 and 2012 is 3 fb$^{-1}$ and the expected one for the upgrade is at least 50 fb $^{-2}$.
+
+For example, some measurements like the $\gamma$ of the \textit{CKM} matrix is still limited by statistics while lifetime measurements are already systematically limited. 
+Due to this, the upgrade of the \textit{LHCb} forward spectrometer is mandatory in order to collect \textit{O(100)} times more data and reduce the statistical uncertainty by a factor 10 in order to be comparable with the theoretical one ~\cite{Blake2}~\cite{Blake3}. On top of the measurements of \textit{CP} vialating processes and the measurement of $\gamma$ angle of the CKM matrix, the huge amount of collected data expected for the upgrade at $\sqrt{s} = 14$ TeV ($\sim 5$fb$^{-1}$ per year) will also strongly improve our actual knowledges about \textit{QCD} and the dynamic of \textit{b} and \textit{c} hadrons decays. 
+
+% which is crucial analyses for theoretical predictions and error estimations also on crucial analysis for the CP violation processes studied at \textit{LHCb}. 
+A detailed description of the physics plan for the upgrade can be found in ~\cite{Blake2}
+
+The \textit{LHCb} detector is a single-arm forward spectrometer aiming to detect particles and their decay products, and as the \textit{b} in the name of the detector suggests, it is designed to study particles containing \textit{b} and \textit{c} quarks which are produced strongly boosted in the forward direction (and equally the backward direction) for symmetric energies of colliding protons at $\sqrt{s}$=14 TeV.%\footnote{The relevant process infact is the quark-gluon fusion which can be obtained in proton proton collisions only with strongly asymmetric PDFs.}
 The detailed description of the \textit{LHCb} detector can be found in ~\cite{Blake1}.
-The data taking at \textit{LHCb} during 2011 ($\sqrt(s)=$7 TeV) and 2012 ($\sqrt(s)$=8 TeV) at \textit{LHCb} are mainly determined by few steps:
+The data taking at \textit{LHCb} during 2011 ($\sqrt(s)=$7 TeV) and 2012 ($\sqrt(s)$=8 TeV) is mainly determined by the trigger and the luminosity:
 \begin{itemize}
 \item{Interesting events are selected by the \textit{L0 Trigger} which is implemented at the hardware level aiming to reduce the 40 \textit{MHz} bunch crossing rate to 1\textit{MHz} making use of estimations and measurements of the signature of particles having high $E_{T},p_{T}$ through the muon stations and the calorimeters. The main reason why this is done is because the read-out system of some of the detector cannot afford an incoming rate of 40\textit{MHz}. In the upgrade, infact, all the read-out will be substituted and the \textit{L0} trigger will be replaced by a software one.}
-\item{\textit{High Level Trigger (HLT) and Offline reconstruction}: the \textit{HLT} consists in an \textit{Online} software trigger where the full reconstruction of tracks is performed. It's at this level that the tracking algorithms are run. After the \textit{HLT}, data are stored and an \textit{Offline} reconstruction is also performed before providing usable object for data analysis. \footnote{During the Run-I, the seeding algorithm (called \textit{PatSeeding}) in the \textit{HLT} was run making use of the left-over hits coming from the \textit{Forward} algorithm. During Run-I the \textit{Seeding} was used in the online reconstruction in tandem with the \textit{Forward} as described before while in the offline reconstruction it was run as a \textit{Standalone} algorithm. For the Run-II online and offline reconstruction gives more or less the same results, but, anyway, the seeding algorithm remains one of the most important one.} Finally data are \textit{Stripped}, meaning that additional cuts are applied before their convertion in usable objects for data analysis.}
-\item{\textit{LHCb} luminosity is kept constant and it's reduced with respect to other \textit{LHC} experiments of 2 orders of magnitudes. This reduction in luminosity is achieved thanks to the \textit{Luminosity Levelling} mechanism which avoid head-on collisions separating beams perpendicularly to the collision plane. This reduction of luminosity is mandatory since the main studies on \textit{b} and \textit{c} hadrons require an extraordinary precise reconstruction of the production vertices of the produced and dacaying particles, so, the VErtex LOcator (\textit{VELO}) can be placed at very small distance from the interaction point limiting problems coming from radiation damages. \footnote{The decrease from the maximal designed luminosity of \textit{LHC} of $10^{34}$cm$^{-2}s^{-1}$ to the \textit{LHCb} one  $10^{32}$cm$^{-2}s^{-1}$ permit to reduce the average number of inelastic collisions from 27 to 0.53 and it allows to reconstruct with extraordinary precision the primary vertices.}}
+\item{\textit{High Level Trigger (HLT) and Offline reconstruction}: the \textit{HLT} consists in an \textit{Online} software trigger where the full reconstruction of tracks is performed. It's at this level that the tracking algorithms are run. After the \textit{HLT}, data are stored and an \textit{Offline} reconstruction is also performed before providing usable object for data analysis. \footnote{During the Run-I, the seeding algorithm (called \textit{PatSeeding}) in the \textit{HLT} was run making use of the left-over hits coming from the \textit{Forward} algorithm. During Run-I the \textit{Seeding} was used in the online reconstruction in tandem with the \textit{Forward} as described before while in the offline reconstruction it was run as a \textit{Standalone} algorithm. For the Run-II online and offline reconstruction gives more or less the same results, but, anyway, the seeding algorithm remains one of the most important one.} Finally data are \textit{stripped}, meaning that additional cuts are applied before their convertion in usable objects for data analysis.}
+\item{\textit{LHCb} luminosity is kept constant and it's reduced with respect to other \textit{LHC} experiments of 2 orders of magnitudes. This reduction in luminosity is achieved thanks to the \textit{Luminosity Levelling} mechanism \footnote{The \textit{Luminosity Levelling} avoid head-on collisions separating beams perpendicularly to the collision plane.}.
+This reduction of luminosity is mandatory since the main studies on \textit{b} and \textit{c} hadrons require an extraordinary precise reconstruction of the production vertices of the produced and dacaying particles, so, the VErtex LOcator (\textit{VELO}) can be placed at very small distance from the interaction point limiting problems coming from radiation damages. \footnote{The decrease from the maximal designed luminosity of \textit{LHC} of $10^{34}$cm$^{-2}s^{-1}$ to the \textit{LHCb} one  $10^{32}$cm$^{-2}s^{-1}$ permit to reduce the average number of inelastic collisions from 27 to 0.53 and it allows to reconstruct with extraordinary precision the primary vertices.}}
 \end{itemize}
 
-Regarding the upgrade, a brief description on what it consists is mandatory. A small summary is given in table ~\ref{table:runningCondition} where $\nu$ stands for the average number of visible interaction per bunch crossing.
+In table ~\ref{table:runningCondition} (where $\nu$ stands for the average number of visible interaction per bunch crossing) a comparison of the current \textit{LHCb} and the upgrade one is shown.
 
 \begin{table}[h]
 \centering
@@ -134,7 +143,7 @@ Luminosity & $4 \times 10 ^{32}$cm$^{-2}s^{-1}$ & $2\times 10^{33}$cm$^{-2}s^{-1
 $\nu $ & 2 & 7.6 \\ \hline
 
 \end{tabular}
-\caption{Main differences between actual LHCb and the Upgrade}\label{table:runningCondition}
+\caption{\textit{Main differences between actual LHCb and the} Upgrade}\label{table:runningCondition}
 \end{table}
 
 The reason why the \textit{L0} trigger will be removed in the upgrade is mainly because some of the analysis looking for deviations from Standard Model are limited by statistics and a fixed 1 \textit{MHz} readout at the upgrade running condition will be too limiting. To be precise, channels containing hadrons in the final state are the one who suffers the most the \textit{L0} hadron trigger.
@@ -143,28 +152,30 @@ Each subdetectors will be replaced as shown in Fig.~\ref{Fig:Upgrade}.
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=0.5\textwidth]{Images/Upgrade.png} 
-  \caption[Caption for track type]{LHCb detector modifications for the upgrade. The Vertex Locator (\textit{VELO}), the Tracker Turicensis(\textit{TT}) and the 3 T-Stations are the main resposible of the tracking at LHCb. The Particle Identification is ensured by the two ring cherenkove detectors (\textit{RICH1} and \textit{RICH2}). The particles energy measurement is provided by the hadronic and the electromagnetic calorimeters (HCAL and ECAL respectively). The properties of the muons are then mainly determined by the Muon System.}\label{Fig:Upgrade}
+  \caption[Caption for track type]{\textit{LHCb detector modifications for the upgrade. The Vertex Locator (\textit{VELO}), the Tracker Turicensis(\textit{TT}) and the 3 T-Stations are the main resposible of the tracking at LHCb. The Particle Identification is ensured by the two ring cherenkove detectors (\textit{RICH1} and \textit{RICH2}). The particles energy measurement is provided by the hadronic and the electromagnetic calorimeters (HCAL and ECAL respectively). The properties of the muons are then mainly determined by the Muon System.}}\label{Fig:Upgrade}
   \end{center}
 \end{figure}
 
-The actual \textit{VELO} will be replaced by a lightweight hybrid pixel detector capable of 40 $MHz$ readout at the upgrade luminosity which is 5 times greater than the actual one.
+The \textit{VELO} will be replaced by a lightweight hybrid pixel detector capable of 40 $MHz$ readout at the upgrade luminosity which is 5 times greater than the actual one.
 %Regarding the \textit{PID} detectors (\textit{RICH1 and RICH2}), the aerogel from \textit{RICH1} will be removed and the opitcal system will be modified, and , of course , new photon detectors and read-out system will be implemented. Since the \textit{L0} trigger will not be present in the upgrade, so the Scintillating Pad detector and the pre-shower which basically initiate the electromagentic and hadronic shower and applies some vetoes to the events will be removed. The calorimeters will remain the same apart of the implementation of a new read-out. The muon system also will remain the same apart of a new read out and the removal of the first station (\textit{M1}).
-The trackers placed downstream and upstream with respect to the magnet will be also completely replaced. In particular, the downstream tracker which is actually made by the so-called Inner tracker (\textit{IT}) and the Outer Tracker (\textit{OT}) will be replaced by the scintillating fibre tracker (\textit{SciFi}) detector to cope for the higher luminosity, higher occupancy and the 40 \textit{MHz} read-out.
+The trackers placed downstream and upstream with respect to the magnet will be also completely replaced to cope for the higher luminosity, higher occupancy and the 40 \textit{MHz} read-out.
 
-The current tracker system downstream the magnet implement two different technologies: the \textit{OT} system is based on gaseous straw tube detector for a global resolution on the bending plane (\textit{x-z}) of around 200 $\mu m$ while the Inner Tracker is made of Silicon microstrip detectors ( also employed for the \textit{Upstream Tracker} upgrade).
+%In particular, the downstream tracker which is actually made by the so-called Inner tracker (\textit{IT}) and the Outer Tracker (\textit{OT}) will be replaced by the scintillating fibre tracker (\textit{SciFi}) detector to cope for the higher luminosity, higher occupancy and the 40 \textit{MHz} read-out.
+
+%The current tracker system downstream the magnet implement two different technologies: the \textit{OT} system is based on gaseous straw tube detector for a global resolution on the bending plane (\textit{x-z}) of around 200 $\mu m$ while the Inner Tracker is made of Silicon microstrip detectors ( also employed for the \textit{Upstream Tracker} upgrade).
 %The main reason why it's necessary to replace the \textit{IT} and \textit{OT} is related to the occupancy being too high in upgrade conditions and the fact that the electronics for them was designed for a 1MHz read-out rate. 
 Another reason why it's necessary to replace them is related to the fact that for the upgrade phase of \textit{LHCb} an integrated luminosity greater than 50 fb$^{-1}$ is expected to be collected and the detector itself is required to be resistent to the corresponding radiation damages.
 
 The adopted solution for the downstream magnet upgrade is the \textit{Scintillating Fibre Tracker} (\textit{SciFi}). The active and light-transport (also wavelenght shifter) material for the detector are the fibres themselves and the read-out is provided by arrays of silicon photomultipliers. The pitch of a single channel is designed to be equal to 250 $\mu m$ and each module of the detector consist of 5 (6 in central region) closed packed fibres ($\Phi \sim 250 \mu m$) layer.
 
  
-The \textit{SciFi} is placed in the downstream region with respect to the magnet (\textit{B} field lines direction are along the \textit{y} direction) and it consists of 3 stations, \textit{T1,T2,T3} being \textit{T1}($z\sim 8m$) the station closer to the magnet and \textit{T3} ($z\sim 10m$) the one closer to the calorimeter. Each station is composed by four layers of scintillating fibres detectors oriented in the so-called \textit{x-u-v-x} configuration.\footnote{The x - layer contains fibres oriented perpendicularly to the x-z plane while the u(v) layers are exactly the same as the x-layers but rotated by a ``stereo'' angle of +5(-5) degree in the x-y plane in order to reconstruct also the y-information of the tracks.}
+The \textit{SciFi} is placed in the downstream region with respect to the magnet (\textit{B} field lines direction are along the \textit{y} direction) and it consists of 3 stations, \textit{T1,T2,T3}. \textit{T1}( placed at $z\sim 8m$) is the one closer to the magnet while \textit{T3} (placed at $z\sim 10m$) is the one closer to the calorimeter. Each station is composed of four layers of scintillating fibres detectors oriented in the so-called \textit{x-u-v-x} configuration.\footnote{The x - layer contains fibres oriented perpendicularly to the x-z plane while the u(v) layers are exactly the same as the x-layers but rotated by a ``stereo'' angle of +5(-5) degree in the x-y plane in order to reconstruct also the y-information of the tracks.}
 
-This configuration (\textit{x-u-v-x}) allows the reconstruction of tracks using their projection in the bending \textit{x-z} plane and the evaluation of the \textit{y} information is obtained through the combined measurement of the \textit{u-v} layers. 
+This configuration (\textit{x-u-v-x}) allows the reconstruction of tracks using their projection in the bending \textit{x-z} plane and \textit{y} information obtained through the combined measurement of the \textit{u-v} layers.% combined measurements of the \textit{u-v} layers provide the \textit{y} information.
 
 Each layer is divided in two halves (roughly \textit{y>0} and \textit{y<0}) equipped at \textit{y=0} by a mirror to improve the light yield in the higher occupancy area (the region close to the beam pipe).
 
-A skematic view of how a single station look like is given in ~\ref{Fig:SciFi} and it will consists of around 10.000 \textit{Km} of fibres and 560.000 read-out channels distributed over the 12 layers (6 \textit{x}, 3\textit{u}, 3\textit{v}).
+A view of how a single station look like is given in ~\ref{Fig:SciFi} and it will consists of around 10.000 \textit{Km} of fibres and 560.000 read-out channels distributed over the 12 layers (6 \textit{x}, 3\textit{u}, 3\textit{v}).
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=0.5\textwidth]{Images/ModuleSciFi.png} 
@@ -186,9 +197,17 @@ The requirements for the \textit{SciFi} to satisfy the physics program of \texti
 %Regarding the track reconstruction in the standalone seeding algorithm the most important thing is the geometrical arrangements of the module which is the same as the current detector due to geometrical contraints. A detailed description of the \textit{SciFi} tracker can be found in ~\cite{TDR_SciFi}. 
 
 %%%Track Reconstruction
-The track reconstruction at \textit{LHCb} is performed in different steps. The idea is to first reconstruct tracks collecting a list of hits from sub-detectors following some given criteria. For example the track model itself can be a criteria to look for compatible hits given a subdetector since the expected behavior of tracks in between one detector and another change due to the shape of the \textit{B} field in a given sub detector.
+The track reconstruction at \textit{LHCb} is performed in different steps. 
 
-All the found tracks are stored in a temporary container and a global fit and finer treatment is performed afterwards (\textit{Kalman Filter} and also a \textit{Ghost and Clone killer} procedure is applied. We will then refer to the first step as \textit{pattern recognition} and the second one as the \textit{final fit}. 
+The first one is a local search of tracks, and it's done looking to hits in each subdetectors. Since the magnetic field is different depending on the region where we are looking at, some assumptions on the magnetic field shape has to be done. These assumptions are directly translated to the track model to use in order to find the tracks.
+
+For example, the track model used in the \textit{Velo} algorithm consists in a straight line since the magnetic field is almost zero in the \textit{Velo} region, while if we assume the \textit{B} field to be constant in a given region, the track model is a parabola.
+
+So, the main goal of this first step is to have reasonable objects (collection of hits) which can be identified as potential good tracks, given the properties of the detector and the magnetic field. These candidates are stored in different ouput containers related to the different algorithms.
+
+The second step consists in a global fit performed once the list of potential good tracks are found. This step relies on the \textit{Kalman Filter} and  a \textit{Ghost and Clone killer} procedure.  
+
+We will then refer to the first step as \textit{pattern recognition} and the second one as the \textit{final fit}. 
 
 The pattern recognition at \textit{LHCb} is done depending on the path the track goes through, so it's based on the detector's hit content as shown in Fig. ~\ref{figure:Tracks}.
 \begin{figure}[h]
@@ -200,7 +219,7 @@ The pattern recognition at \textit{LHCb} is done depending on the path the track
 \end{figure}
 
 \footnotetext{ z- is the beam axis direction and the y axis is the B field line direction.}
-In the tracking system of \textit{LHCb} each track type is reconstructed by a dedicated algorithm and a schematic layout of how it is done is given in table \ref{Table:tracks}.
+In the tracking system of \textit{LHCb} each track type is reconstructed by a dedicated algorithm as summarised in table \ref{Table:tracks}.
 \begin{table}[h]
 \begin{tabular}{|l|l|l|l|l|}
 \hline
@@ -214,7 +233,11 @@ Downstream Tracks & \multicolumn{1}{|l|}{\begin{tabular}[|l|]{@{}l@{}}T-Stations
 
 \end{table}
 
-All the tracks produced by the algorithms provided in table ~\ref{Table:tracks} are processed afterwards by the \textit{Kalman Filter} which fit the tracks assigning a \textit{univoque} $\chi^{2}$ value to the tracks. Infact, each algorithm has an internal track model parametrisation and the global effect comparing different algorithms is to have different $\chi^{2}$ value for the same track, for instance and in addition pattern recognition algorithm are not expected to correct the fit for multiscattering effects, it's infact the \textit{Kalman Filter} the algorithm where the fit takes into account the full \textit{B(x,y,z)} field map and the material budget computing at the same time the corrections due to multiscattering.
+All the tracks produced by the algorithms provided in table ~\ref{Table:tracks} are processed afterwards by the \textit{Kalman Filter} which fit the tracks assigning a $\chi^{2}$ value to the tracks which is different from the $\chi^{2}$ provided by the algorithms of the \textit{pattern recognition} step.
+
+Each algorithm has infact an internal track model parametrisation and the global effect comparing different algorithms is to have different $\chi^{2}$ value for the same track. 
+
+Differently from pattern recognition, it's the \textit{Kalman Filter} the alogorithm where the fit procedure takes into account the full \textit{B(x,y,z)} field map and the material budget computing the corrections due to multiscattering.
 
 From a more technical point of view, in the \textit{Kalman Filter} and in the \textit{LHCb} framework each track is defined by a vector of track state $\left( x, y, t_{x}, t_{y} , \frac{q}{p} \right)_{z}^{T}$ where $t_x = \frac{dx}{dz}$ is the slope of the track in the \textit{x-z} plane at a given \textit{z},$t_y=\frac{dy}{dz}$ is the slope of the track in the \textit{y-z} plane at a given \textit{z}. In the \textit{Kalman Filter} the track state is propagated by a $5$x$5$ matrix through the detector considering the interactions in the material and the magnetic fiel map \footnote{The formalism is quite similar to accelerator physics for beam transport.}. 
 
@@ -236,25 +259,33 @@ Without going into details we can make a short summary of how the \textit{LHCb} 
 
 The most important figures of merit used to evaluate the performances of a pattern recognition algorithm are the following:
 \begin{itemize}
- \item{\textit{Reconstruction efficiency} : The track finding efficiency is defined as the fraction of \texttt{MC} particles in the acceptance that are successfully reconstructed,i.e, the percentage of \textit{reconstructed} tracks which are \texttt{MC-matched} (sharing the \textit{70} $\%$ of hit) among the set of \texttt{MCParticles} ending in the \textit{LHCb} acceptance. $$\epsilon = \frac{N_{MC-matched}}{N_{MC-acceptance}}$$.The acceptance is defined as at least one \textit{x} and one \textit{u} or \textit{v} layer hit per station.}
- \item{\textit{Ghost rate} : It is defined as the fraction of ghost tracks among the set of \textit{reconstructed} ,i.e., as the fraction of \textit{reconstructed} tracks not matched to a \texttt{MCParticle}.$$ghost_{rate} = \frac{N_{ghost}}{N_{reconstructed}}$$. Ghosts are generated from psudo-random combination of hits. This parameter is important because we don't want to recontruct fake tracks or use them in analysis, and, in addition, we don't want to feed the \textit{Kalman Filter} with too many fake tracks due to timing constraints.}
+ \item{\textit{Reconstruction efficiency} : The track finding efficiency is defined as the fraction of \texttt{MC} particles in the acceptance that are successfully reconstructed,i.e, the percentage of \textit{reconstructed} tracks which are \texttt{MC-matched} (sharing the \textit{70} $\%$ of hit) among the set of \texttt{MCParticles} ending in the \textit{LHCb} acceptance. $$\epsilon = \frac{N_{MC-matched}}{N_{MC-acceptance}}.$$
+The acceptance is defined as at least one \textit{x} and one \textit{u} or \textit{v} layer hit per station.}
+ \item{\textit{Ghost rate} : It is defined as the fraction of ghost tracks among the set of \textit{reconstructed} ,i.e., as the fraction of \textit{reconstructed} tracks not matched to a \texttt{MCParticle}.$$ghost_{rate} = \frac{N_{ghost}}{N_{reconstructed}}.$$
+
+Ghosts are generated from psudo-random combination of hits. This parameter is important because we don't want to recontruct fake tracks or use them in analysis, and, in addition, we don't want to feed the \textit{Kalman Filter} with too many fake tracks due to timing constraints.}
  \item{\textit{Timing} : It is defined as the time we spend to find the tracks in the algorithm. This is particualry important for the upgrade since the pattern recognition algorithms will run online at an incoming rate of \textit{40 MHz}.}
 \end{itemize}
 
 The work done from October 2014 to now is based in this framework. 
 
-At the beginning i was involved in the debugging of the simulation code (\textit{Boole} and \textit{Brunel}), putting my hands in the detector description, the clusterisation and the encoding and decoding of the clusters to figure out the presence of some inconsistencies or wrong assumptions.
+At the beginning i was involved in the debugging of the simulation code (\textit{Boole} and \textit{Brunel}), in the detector description, the clusterisation and the encoding and decoding of the clusters to figure out the presence of some inconsistencies or wrong assumptions.
 
-Some problems and inefficiencies in the software were infact not well understood passing from the default detector description (the one used for the Technical Design Report ~\cite{SciFiTDR}) to the new one where bigger gaps between channels were simulated, together with a new shape of detector layers, and a more realistic model of the clusterisation were implemented. 
+Some problems and inefficiencies in the software were not well understood passing from the default detector description (the one used for the Technical Design Report ~\cite{SciFiTDR}) to the new one where bigger gaps between channels were simulated, together with a new shape of detector layers, and a more realistic model of the clusterisation. 
 
-In that context my effort was crucial (i took part to the ``\textit{DILBERT}'' task force for the software fixing and bug correction) to recover part of the loss in efficiency and we finally provide a stable version of the simulation of the detector from which the development of a new pattern recognition algorithm becomes possible. The discrepancies with the \textit{TDR} values were understood and the explaination to them are mainly related to the increased dead region due to the gaps in between two different readout channels.
+In that context my effort was crucial (I took part to the ``\textit{DILBERT}'' task force for the software fixing and bug correction) to recover part of the loss in efficiency. A stable version of the detector simulation was released and starting from that, the development of a new pattern recognition algorithm becomes possible. 
 
-In the meanwhile i partecipated to the \textit{Test Beam} data taking and data analysis aiming to measure the radiation lenght of the fibres doing light yield measurements scanning along the active material at different distances from the read-out and also evaluating the dependency of the cluster size against track incident angles. I also analyse some of the data from the test beam to study the cluster size properties as a function of the incident angle of tracks in the detector in order to tune the simulation to be the most reliable and realistic possible. ~\cite{AnalysisOrsay}.
+The discrepancies in efficiencies with the \textit{TDR} values were understood: increased dead region due to the gaps in between two different readout channels leads to a loss in efficiency or around 2$\%$ whcih is what is shown in ~\ref{table} comparing the first and the third column.
 
-The results of how the efficiencies for the seeding algorithm evolved since i started will be shown at the end of this section to highlight my contribution to the upgrade \textit{SciFi simulation and reconstruction} working group. I presented regularly my work in the internal \textit{SciFi simulation and reconstruction} working group and i presented once the results of the group in the parallel session of the \textit{LHCb week}. 
+In the meanwhile i partecipated the \textit{test beam} data taking and data analysis aiming to measure the attenuation lenght of the fibres doing light yield measurements scanning along the active material at different distances from the read-out and also evaluating the dependency of the cluster size against track incident angles. I also analyse some of the data from the test beam to study the cluster size properties as a function of the incident angle of tracks in the detector in order to tune the simulation to be the most reliable and realistic possible. ~\cite{AnalysisOrsay}~\cite{OrsayTestBeam}.
 
-\subsection{Improvements apported to the algorithm}
-Several trials in improving the previous algorithm (referred to \textit{Old} here) have been done. Once we figured out the limitations of it we decided to develop a new one from scratch. The development of the new one started from very basics things related to track properties, detector occupancy and requirements on tracks.
+
+
+
+The results of how the efficiencies for the seeding algorithm evolved since i started will be shown at the end of this section to highlight my contribution to the upgrade \textit{SciFi simulation and reconstruction} working group. I presented regularly my work in the internal \textit{SciFi simulation and reconstruction} working group and i presented once the results of the group in the parallel session of the \textit{LHCb week}. The list of talks and presentations done will be listed in the talks and presentations section. 
+
+\subsection{Improvements to the algorithm}
+Several studies has been performed for the previous algorithm (referred to \textit{Old} here) in order to understand and improve it. Once we figured out the limitations of it we decided to develop a new one from scratch. The development of the new one started from very basics things related to track properties, detector occupancy and requirements on tracks.
 First of all we need to separate different aspects of the algorithm: 
 
 \begin{itemize}
@@ -264,33 +295,55 @@ First of all we need to separate different aspects of the algorithm:
 \item{The requirements we put on tracks for their storage and clone/ghost killing.}
 \end{itemize}
 
-In order to do that, several tools have been developed: one of them, for instance, aims to extract the true \textit{Monte-Carlo} information of tracks before the clusterisation step in order to evaluate the track properties and their behavior in the \textit{SciFi} stations.\footnote{Thanks to that a tracking algorithm running over true hit position was developped to figure out which is the best track model to use in order to fit the tracks going through the \textit{SciFi} and also to have an estimation of ``how much'' one can squeeze some search windows without starting to loose too much in efficiencies.} The strategy adopted once the track property was extracted was then the following: instead of using a look-up table for the \textit{B} field information one can directly use the \textit{B}-field effect on tracks parametrising their motion by some fixed constants reflecting the magnetic field behavior.\footnote{The B field in the Sci-Fi tracker region is a fringe field which is not easly parametrisable, but still, some caractheristic behavior can be extracted.}
+In order to do that, several tools have been developed: one of them, for instance, aims to extract the true \textit{Monte-Carlo} information of tracks before the clusterisation step in order to evaluate the track properties and their behavior in the \textit{SciFi} stations.\footnote{Thanks to that a tracking algorithm running over true hit position was developped to figure out which is the best track model to use in order to fit the tracks going through the \textit{SciFi} and also to have an estimation of ``how much'' one can squeeze some search windows without starting to loose too much in efficiencies.} 
+
+The strategy adopted once the track property was extracted was then following: instead of using a look-up table for the \textit{B} field information one can directly use the \textit{B}-field effect on tracks parametrising their motion by some fixed constants reflecting the magnetic field behavior.\footnote{The B field in the Sci-Fi tracker region is a fringe field which is not easly parametrisable, but still, some caractheristic behavior can be extracted.}
+
+The main improvement from this study was the introduction of a new track model and the evaluation of some fixed parameter describing the motion of the tracks and their properties (\textit{pointing} to the origin vertex).
+The adopted track model is the following:
+$$x(z) = a_x + b_x \cdot (z-z_{ref}) + c_x \cdot (z-z_{ref})^{2}\cdot(1+dRatio \cdot (z-z_{ref}))$$ $$y(z) = a_y + b_y \cdot (z-z_{ref})$$
+where $dRatio$ is a fixed term resulting from a linear decrease along \textit{z} of the magnetic field along \textit{y} direction (the farther we are from the magnet, the smaller is the magnetic field). The terms in the model $a_{x}$ and $a_{y}$ are respectively $x(z_{Ref})$ and $y(z_{ref})$ resulting from the solution of the equation of motion. In the same way one can find out that $b_{x}\propto \frac{q \cdot p_x}{p_z}$ ($b_{y}\propto p_y$) and $c_{x}\propto \frac{q}{p_z}$.
+
+The track model in the non-bending plane (\textit{y-z}) is a straight line because the magnetic field along \textit{z} and \textit{x} is almost zero and it should not affect at all the track motion. Mathematically, the resulting track model is the direct consequence of the assumption for which the magnetic field is given by $$\overrightarrow{B} = (0,B0(x,y)+B1(x,y) \cdot z,0).$$ plus the addition of the fixed term $$dRatio = \frac{B1(x,y)}{B0(x,y)}=const.$$ which is a very good assumption for tracks going through the central region of the detector ($|x|<1000$mm and $|y|<1000$mm) while it becomes false if the tracks goes through the fringe field region corresponding to the external parts of the detector ($|x|>1000$mm and $|y|>1000$mm) where the occupancy is much smaller and looser requirements can be applied.
+
+Another improvement introduced in the algorithm concerns the possibility to estimate the origin vertex position ($x_{track}(z=0)$) accounting for the average bending the particles experience when they travel from the \textit{Velo} to the $z_{ref}$.
+This is encoded in the \textit{backward projection} parameter estimated as $X_{0}=a_{x}-b_x z_{ref} + c_{x}\cdot C$ where $C$ is fixed from \textit{MC} studies and it is related to $$C = \int _{ 0 }^{ { z }_{ ref } }{ dz' } \int _{ 0 }^{ z' }{ { B }_{ y }(z) } dz$$ and the other parameters are the one one would find from the fit.
+Since the largest part of tracks we detect comes from the origin vertex, the \textit{backward projection} becomes extremely usefull in the ghost rejection.
+
 
 The main limitations, or problems, of the previous algorithm can be summarized in few points:
 \begin{itemize} 
-\item{It was trying to find everything at once, meaning that it was not disentangling the cases where tracks are easy to finde to the cases where the tracks are harder to find. Harder to find stands for find it paying an high prize in terms of ghost rate.}
-\item{The tracks behavior in the \textit{SciFi} tracker was roughtly parametrised.} 
-\item{The different detector area were treated in the same way even if where we expect a lower efficiency we can loosen the cuts for the track selection.}
+\item{It was trying to find everything at once, meaning that it was not disentangling the cases where tracks are easy to find to the cases where the tracks are harder to find. Harder to find stands for find it paying an high prize in terms of ghost rate. This is related to two different aspects: the intrinsic properties of the track, such as its momentum as well as the detector occupancy.}
+\item{The tracks behavior in the \textit{SciFi} tracker was roughtly parametrised, no $dRatio$ correction.} 
+\item{The different detector area were treated in the same way. For example it was not taking into account that where we expect to have a lower occupancy we can loosen the cuts for the track selection.}
 \end{itemize}
 
-The strategy adopted for the track search is to \textbf{split the algorithm in nested sub blocks} following the philosophy of the \textit{projective tracking} and \textit{progressive cleaning} of the tracking environment. Since the detector is divided into two halves (\textit{y>0}mm and \textit{y<0}mm) a natural choice is to split the algorithm in a first step where tracks are searched for using only the hits in the upper modules of the stations and a second iteration is done using hits from the lower half. 
+The strategy adopted for the track search is to \textbf{split the algorithm in nested sub blocks} following the philosophy of the \textit{projective tracking} and \textit{progressive cleaning} of the tracking environment. Since the detector is divided into two halves (\textit{y>0}mm and \textit{y<0}mm) a natural choice is to split the algorithm in a first step where tracks are searched for using only the hits in the upper modules of the stations and a second iteration is done using hits from the lower half.
 From the \textit{MC} study we find out that the amount of tracks going from the upper to the lower half is a negligible fraction of the full set of tracks \textit{$\sim O(0.1 \%)$}. 
 
-Inside the upper(or lower) half search we run the second main block of the algorithm three times (we will call them \textit{cases}). For each \textit{case} different configurations for search windows and tolerances are applied. Each one of the \textit{case} is dependent on the previous one since at the end of each of them (only the first and the second) we mark the hits on the found tracks using some specific criteria. The net result is a progressive cleaning of the tracking environment moving from one case to the following one. For example in the second \textit{case} the hits found by the first one are not available for track reconstruction.
+Inside the upper(or lower) half search we run the second main block of the algorithm three times (we will call them \textit{cases}). The idea of splitting the algorithm in three \textit{cases} is related to the fact we want to firstly find the easier tracks (high momentum one), mark the hits associated to them and look for more complicated tracks (lower momentum, highly curved tracks) in a cleaner environment.This is obtained through different configurations for search windows and tolerances inside each \textit{case}.
+
+Strictly speaking, the first case aims to find high momentum tracks ($p>$5 GeV) while the second and the third \textit{case} aims to find tracks with $p$<5 GeV which are harder to find (higher search windows and looser $\chi^{2}$ cuts) and also complete the search for high momentum tracks which are not found by the first \textit{case}.
+
+Each one of the \textit{case} is then dependent on the previous one since at the end of each of them (only the first and the second) we mark the hits on the found tracks using some specific criteria making them unavailable for the following \textit{case}.
+
+
+The net result is a progressive cleaning of the tracking environment moving from one case to the following one. For example in the second \textit{case} the hits found by the first one are not available for track reconstruction.
+
 Each of the case is made by some different step:
 \begin{itemize}
   \item{\textbf{\textit{x-hit search}}: Hits are collected using only the \textit{x} layers in the 3 stations, so the maximal number of hits on track is 6 and the minimal one can be set to 4 or 5 depending on the case. The lower is the minimal number of hit required here the higher is the ghost rate since, for instance, tracks with only 4 x-layer hits are much less constrained than tracks with 6 x-layer hits.}
     \begin{enumerate}
     \item{2-Hit combinations are obtained looking at pairs of hits in the \textit{x-layers} in \textit{T1} and \textit{T3}. Given a hit in the first station (\textit{T1}) the infinite momentum prediciton is used to open a search window in \textit{T3} ($x_{T3} \sim \frac{x_{T1}}{z_{T1}}\cdot z_{T3}$ under the $p^{ \infty }$ assumption). All possible 2-hit combination are then collected. Tighter search window is applied for the first \textit{case} and bigger ones are used for the second and third one in order to find lower momentum tracks.}
-      \item{All possible third hit from \textit{T2} is added to each single pair taking the linear predicition from $x_{T2} = \frac{x_{T3}-x_{T1}}{z_{T3}-z_{T1}}\cdot z_{T2}$. At this step, the small is the momentum of the track we are searching for and the bigger the deviation from the linear predicted position we should look for. This search window is correlated to the $p_{x}$ and to the sagitta of the track itself in the bending plane.}
-      \item{Starting from 3 hit combination (one per station), the parameters of a parabola can be computed solving for $a_{x},b_x,c_x$ form the linear system given by $x_{i}(z_{T-i})= a_{x}+b_{x}\cdot dz_{T-i}+c_{x}dz_{T-i}^{2}$ where $dz_{T-i} = z_{T-i}-z_{ref}$ and $z_{ref}$ is picked to be $8530 mm$ ($\sim z_{T2}$) for numerical stability of track parameters ($a_{x},b_{x},c_{x}$).\footnote{In reality we solve for $(a_{x},b_{x},c_{x})$ using $x(z)=a_{x}+b_{x}dz+c_{x}dz^{2}(1+dRatio\cdot dz)$ where the \textit{dRatio} is fixed by MC studies}}
+      \item{Any possible (in within a given tolerance) third hit from \textit{T2} is added to each single pair taking the linear predicition from $x_{T2} = \frac{x_{T3}-x_{T1}}{z_{T3}-z_{T1}}\cdot z_{T2}$. At this step, the smaller is the momentum of the track we are searching for and the bigger the deviation from the linear predicted position we should look for. This search window is correlated to the $p_{x}$ and to the sagitta of the track itself in the bending plane.}
+      \item{Given the three hit combination (one per station), the parameters of a parabola can be computed solving for $a_{x},b_x,c_x$ form the linear system given by $x_{i}(z_{T-i})= a_{x}+b_{x}\cdot dz_{T-i}+c_{x}dz_{T-i}^{2}$ where $dz_{T-i} = z_{T-i}-z_{ref}$ and $z_{ref}$ is picked to be $8530 mm$ ($\sim z_{T2}$) for numerical stability of track parameters ($a_{x},b_{x},c_{x}$).\footnote{In reality we solve for $(a_{x},b_{x},c_{x})$ using $x(z)=a_{x}+b_{x}dz+c_{x}dz^{2}(1+dRatio\cdot dz)$ where the \textit{dRatio} is fixed by MC studies}}
       \item{Once we have the $a_{x}$,$b_{x}$ and $c_{x}$ we can compute the predicted $x$ position at any $z$ and collect the found hits around the expected position inside a given tolerance. At this step the hit at the smallest distance from the prediction is picked and added to the track.}
       \item{At this stage, a list of hits is collected which should correspond to the \textit{x-z} projection of the true track in \textit{x-layers}.}
       \item{A track object is created using the hits found in the \textit{SciFi} and a fit is performed. The fit uses as track model for the \textit{x-z} projection the following parametrisation $x(z)=a_{x}+b_{x}dz+c_{x}dz^{2}(1+dRatio\cdot dz)$.}
         \begin{enumerate}
            \item{The \textit{Backward projection} $X_{0}$ is computed, being the estimation of the $x(z=0 mm)$ accounting for the integrated magnetic field from $z=0$ to $z=z_{ref}$ under the assumption that the particle is generated at $(x=0,z=0)$. The formula used is then $X_{0} = a^{fit}_{x}+b^{fit}_{x}+c^{fit}_{x} \cdot C^{Const}$ where $C^{Const}$ is a fixed parameter found from simulation accounting for the kick that the tracks receive in the region before the \textit{SciFi}. }
            \item{Combined cuts are applied in the plane given by the $\chi^{2}$ versus $X_{0}$ to return the fit status. At this step also the occupancy is taken into account. For tracks going far from the beampipe ($\left| X_{T1} \right| > 500 mm$) looser cuts are applied since the chance to find compatible hits in the \textbf{stereo hit search} step is much lower than in the higher occupancy detector area ($\left| X_{T1} \right| <500 mm$).}
-           \item{If the \textit{x-z projection} track satisfy the requirements they are stored as good tracks, if not, they are \textit{refitted} after the removal of the worst hit (defined as the hit giving the higer contribute to the $\chi^{2}$). So, for example, if we find a \textit{x-z projection} track with 6 hit and at the first fit the fit is not successful because of the requirements we put on the $\chi^{2}$ and the $X_{0}$, we remove one hit and we refit it again. This process is done recursively as soon as we don't reach the limit given by the minimal number of hits we require. At this step of the fitting and minimal hit requirements, we make some differenciation between the first \textit{case} and the following ones. For example, in the first and the second \textit{case} we keep only tracks containing 4 hits on \textit{x} layers at the second and the third iteration of the \textit{fit} while for the third \textit{case} we also keep 4 hits on track at the first iteration.}
+           \item{If the \textit{x-z projection} of the track satisfy the requirements they are stored as good tracks, if not, they are \textit{refitted} after the removal of the worst hit (defined as the hit giving the higer contribution to the $\chi^{2}$). So, for example, if we find a \textit{x-z projection} track with 6 hit and at the first fit the fit is not successful because of the requirements we put on the $\chi^{2}$ and the $X_{0}$, we remove one hit and we refit it again. This process is done recursively as soon as we don't reach the limit given by the minimal number of hits we require. At this step of the fitting and minimal hit requirements, we make some differenciation between the first \textit{case} and the following ones. For example, in the first and the second \textit{case} we keep only tracks containing 4 hits on \textit{x} layers at the second and the third iteration of the \textit{fit} while for the third \textit{case} we also keep 4 hits on track at the first iteration.}
            \end{enumerate}
       \item{The tracks are stored (at this stage we can only have tracks containing 4,5 or 6 hits) and a \textit{clone removal step} is performed based on a minimal number of shared hits, which is set to 2 by default. If two tracks shares 2 hits or more, we keep the one with the higher number of hits, if they have the same amount of hits, we keep the one with the better $\frac{\chi^{2}}{ndof}$}
    \end{enumerate}
@@ -302,7 +355,7 @@ Each of the case is made by some different step:
    \item{For each of the track candidates we generate adding the stereo hits, we make a fit and , as in the \textit{x-z projection} search, a fit is performed, but at this stage the track model is extended also to the \textit{y-z} plane. The adopted model becomes then $$\begin{cases} x(z)={ a }_{ x }+b_{ x }dz+{ c }_{ x }{ dz }^{ 2 }\cdot (1+dRatio\cdot dz) \\ y(z)={ a }_{ y }+{ b }_{ y }z \end{cases}$$.}
    \item{In the fit method the status of the fit (failed or successful) is based on different properties: the maximal contribution of the hit to the $\chi^{2}$,the $\chi^{2}$ of the track, the number of hits on the track, the value of the backward projection $X_{0}$, the value of the \textit{y} backward projection (i.e. \texttt{track.y(z=0 mm)} and the region of the detector interested (\textit{x(zT1),x(zT3),y(zT1),y(zT3)}). The last bit is taken into account because knowing where the track is going through in the detector we can apply stronger requirements for tracks going through the higher occupancy area, reducing the ghost rate.}
      \begin{enumerate}
-      \item{If the track satisfy the requirements, it is stored in memory as a good candidate, if not, we remove the worst hit and we redo the fit.} 
+      \item{If the track satisfies the requirements, it is stored in memory as a good candidate, if not, we remove the worst hit and we redo the fit.} 
      \end{enumerate}
    \item{Since the starting point is an \textit{x-Candidate} and there is the possibility to find more than one stereo segment associated to that, the best one is selected, based on the number of hits on track (favouring the one with more hits) and keeping the one with the best $\frac{\chi^{2}}{ndof}$ if the comparison is done between the same amount of hits on the track.}
    \end{enumerate}
@@ -342,8 +395,15 @@ Ghost Rate & 18.0 \% & 28.6 \% & 21.2 \% & \textbf{10.1} \%  (\textbf{-11.1} \%)
 Hit Efficiency(hasT) & 96.43 \% & 94.97 \% & 95.1 \% & \textbf{92.4} \% (-2.7 \% ) \\
 \end{tabular}
 \caption{\emph{Efficiencies numbers for the seeding algorithm since i started working on it.
-TDR numbers are obtained with a less realistic detector description and with a semplified clusterisation. The second column are the efficiencies values at October 2014 after the implementation of a new detector description and modifications in the digitisation algorithm. The third column are the efficiencies values after the correction of bugs we find in the code related to the detector description and the digitisation. The last column are the efficiencies for the seeding algorithm developed. Efficiencies here are given for 1000 events of simulated $B^{0}_{s}\rightarrow \phi(K^+K^-)\phi(K^{+}K^{-})$ accounting for tracks in $\eta [2,5]$ and without taking into account the electrons.}}\label{table}
+TDR numbers are obtained with a less realistic detector description and with a semplified clusterisation. The second column are the efficiencies values at October 2014 after the implementation of a new detector description and modifications in the digitisation algorithm. The third column are the efficiencies values after the correction of bugs we find in the code related to the detector description and the digitisation. The last column are the efficiencies for the seeding algorithm developed. Efficiencies here are given for 1000 events of simulated $B^{0}_{s}\rightarrow \phi(K^+K^-)\phi(K^{+}K^{-})$ accounting for tracks in $\eta \in  [2,5]$ and without taking into account the electrons.}}\label{table}
 \end{table}
+
+As it can be observed a huge improvement has been apported to the \textit{seeding} algorithm since the \textit{TDR} time. 
+
+We should underline that at the \textit{TDR} time the gaps between the read-out channels were smaller (hit efficiency difference $\sim 1\%$) than the one implemented later on ($2^{nd},3^{rd},4^{th}$ column) resulting into an expected $\sim 2 \%$ difference in tracking efficiencies. As it can be observed, moving from one detector description to the more realistic one ($1^{st}$ versus $2^{nd}$ column) the drop in efficiency was too high to be only related to the additional dead regions introduced in the simulation. The gap has been reduced thanks to the \textit{debugging} work described at the beginning ($2^{nd}$ versus $3^{rd}$ column) and the new algorithm has been started to be developed (last column). 
+
+As it can be observed, a postive improvement for all the track category has been obtained and, more remarkably, a much lower ghost rate has been obtained. Further improvements are expected to be put in place such as the introduction of a position dependent ,i.e, $dRatio(x,y)$ correction and also a better track comparison procedure in order to kill the ghosts and the clones without losing in efficiency.
+
 %\begin{itemize} 
 %\item Velo tracks and Velo segments : tracks are reconstructed as 3-D object and they fill the container of \textit{Velo tracks} and they are found under the assumpiton that all of them originate from the same point.
 %\item \textit{T-Tracks} , i.e., tracks going through the T-Station (\textit{SciFi} for upgrade) track reconstruction, it is done by the \textit{Seeding} algorithm and it runs as a standalone algorithm (alternitavely it can run on the leftover hits of the \textit{Forward} tracking). It's mainly useful to reconstruct tracks from long-lived particles such as $K_{s}^{0}$ and $\Lambda^{0}$  and in general tracks without \textit{Velo} segment. The \textit{seeding} algorithm ouput is used then to reconstruct \textit{Downstream} tracks, as well as \textit{long} tracks.
@@ -354,25 +414,23 @@ TDR numbers are obtained with a less realistic detector description and with a s
 \subsection{Analysis Work : $B^{0}\rightarrow D^{0}\overline{D}^{0}K^{\ast 0}$ analysis}
 The subject of my thesis is the study of double charm $B$ decays at LHCb. The planning of the analysis is the following: 
 \begin{itemize}
-  \item{Provide the first observation of the $B.R.(B^{0}\rightarrow D^{0} \overline{D}^{0} K^{\ast 0})$ using as reference channel $B^{+}\rightarrow D^{0}\overline{D}^{0}K^{+}$ measuring its \textit{B.R.}.
-The main reason why we need a reference channel in this measurement is because lot of systematics effects on the measurement can be neglected in that way.
-  \item{Amplitude analysis of $B^{0}\rightarrow D^{0} \overline{D}^{0} K^{\ast 0}$ using \textit{Dalitz analysis} techniques. The goal of this study is to figure out if some exotic resonance (\textit{XYZ}) states are present in the spectrum of the $D^{0}\overline{D}^{0}$ invariant mass.}
+  \item{Provide the first observation of $B^{0}\rightarrow D^{0} \overline{D}^{0} K^{\ast 0}$ using as reference channel $B^{+}\rightarrow D^{0}\overline{D}^{0}K^{+}$ measuring its $\mathcal{B.R.}$.
+The main reason why we need a reference channel in this measurement is because lot of systematics effects on the measurement can be neglected in that way.}
+\item{Amplitude analysis of $B^{0}\rightarrow D^{0} \overline{D}^{0} K^{\ast 0}$ using \textit{Dalitz analysis} techniques. The goal of this study is to figure out if some exotic resonance (\textit{XYZ}) states are present in the spectrum of the $D^{0}\overline{D}^{0}$ invariant mass.}
 \end{itemize}
-Unfortnuatly i was not able to work on that since october 2014, but some preliminary study has been carried out and a clear idea of how to proceed has been put in place as it will be described in the timetable for future plans section. Anyway, a preliminary work as been done, mainly regarding the reference channel, i.e. $B^{+}\rightarrow D^{0}\overline{D}^{0}K^{+} +c.c.$, where $C.C.$ stands for charge conjugate decay channel.
+Unfortnuatly i was not able to work on that since October 2014, but some preliminary study has been carried out and a clear idea of how to proceed has been put in place as it will be described in the timetable for future plans section. Anyway, a preliminary work as been done, mainly regarding the reference channel, i.e. $B^{+}\rightarrow D^{0}\overline{D}^{0}K^{+} +c.c.$, where $C.C.$ stands for charge conjugate decay channel.
 As already said the first goal is the measurement of the branching ration for ${ B }^{ 0 }\rightarrow { D }^{ 0 }\overline { { D }^{ 0 } } { K }^{ *0 } + C.C.$ (never measured and observed so far) using the ${ B }^{ + }\rightarrow { D }^{ 0 }\overline { { D }^{ 0 } } { K }^{ + } +C.C.$ as reference channel. The $D$ mesons are reconstructed through $\Dzch +c.c$.
- 
-The $LHCb$ experiment 2011 and 2012 data have been used for a total integrated luminosity of 3 $fb^{-1}$ .
 
-The $B$ mesons double charm decays have been introduced to explain the discrepancy between the semileptonic branching ratio of $B$ decays and the observed number of charmed mesons in $B$ decays. Nowadays, there are some of the decay modes which has not been observed and the $\Bzch$ is one of them.
+The $B$ mesons double charm decays have been introduced to explain the discrepancy between the semileptonic branching ratio of $B$ decays and the observed number of charmed mesons in $B$ decays. Nowadays, there are some of the decay modes which have not been observed and $\Bzch$ is one of them.
 More interest about this topology of decay concern the search of exotic structures above the open charm thresholds ($>2M_{D}$). In this invariant mass region observed states and charmonium ($c\overline{c}$ bound states) predicted one are in disagreement and channels as the one considered for my thesis can lead to interesting results in this domain.
 \subsubsection{${ B }\rightarrow { D }^{ (*)} { D }^{ (*) } { K }^{ (*) }$ Decays : topology and possible physics studies}
 
 At the quark level, the  $B^{+}\rightarrow D^{0} \overline{D}^{0} K^{+} +c.c.$ 
-$B^{0}\rightarrow D^{0} \overline{D}^{0} K^{\ast 0}  +  c.c.$ are generally described by the \textit{CKM} favoured weak transition $\overline{b} \rightarrow \overline{c} W^{+} \rightarrow \overline{c} c \overline{s}$ with additional $u\overline{u}$(or $d\overline{d} $ ) quarks coming from the \textit{QCD} vacuum.\footnote{These decay modes have been introduced due to the so called \textit{Charm counting puzzle}, i.e., theoretical discrepancy between the semileptonic branching ratio of $B$ decays with the number of charmed hadrons produced in $B$  decays.}  The relevant feynman diagrams for such decay modes are shown in Fig \ref{quarks}.
+$B^{0}\rightarrow D^{0} \overline{D}^{0} K^{\ast 0}  +  c.c.$ are generally described by the \textit{CKM} favoured weak transition $\overline{b} \rightarrow \overline{c} W^{+} \rightarrow \overline{c} c \overline{s}$ with additional $u\overline{u}$(or $d\overline{d} $ ) quarks coming from the \textit{QCD} vacuum.\footnote{These decay modes have been introduced due to the so called \textit{Charm counting puzzle}, i.e., theoretical discrepancy between the semileptonic branching ratio of $B$ decays with the number of charmed hadrons produced in $B$  decays.}  The relevant diagrams for such decay modes are shown in Fig \ref{quarks}.
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[ width=0.5\textwidth]{Images/Feynman2.png}
-\caption{Leading order Feynman diagrams for $\Bpch$. On the right the colour-favoured mode ($u\overline{u}$ from \textit{QCD} vacuum can have 3 different colour assignment), on the left the colour suppressed mode (once the spectator quark colour is fixed, all the other are fixed). For $\Bpch$ both the modes can occur while for the $\Bzch$ only the suppressed mode can occurs.}\label{quarks}
+\caption{\textit{Leading order feynman diagrams for $\Bpch$. On the left the colour-favoured mode ($u\overline{u}$ from \textit{QCD} vacuum can have 3 different colour assignment), on the right the colour suppressed mode (once the spectator quark colour is fixed, all the others are fixed). For $\Bpch$ both the modes can occur while for the $\Bzch$ only the suppressed mode can occurs.}}\label{quarks}
 \end{center}
 \end{figure}
 
@@ -398,7 +456,7 @@ The goal of the analysis is to measure the $\mathcal{B.R.}$ of the  $\Bzch$. The
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[ width=0.5\textwidth]{Images/BDTCatMassB.pdf}
-\caption{\textit{Reconstructed $B$ mass spectrum for  the 2011 and 2012 LHCb data in the $B^{\pm} \rightarrow D^{0} \overline{D}^{0} K^{\pm}$ channel. \textit{Data Stripping + Filter} are the pre-selected \texttit{B} candidates. The \textit{BDTCat} is the \textit{MVA} classifier which permits to separate background-like and signal-like candidates. The cut value \textit{-0.15} has been chosen maximising the $\frac{S}{\sqrt{S+B}}$ figure of merit. (here $\sim 40$). The two peaks below the nominal $B^{+}$ mass  consists into reconstructed $D$ mesons from the strong $D^{\ast}\rightarrow D \pi$ decay where the $\pi$ is outside the LHCb acceptance.}}\label{Bmass}
+\caption{\textit{Reconstructed $B$ mass spectrum for  the 2011 and 2012 LHCb data in the $B^{\pm} \rightarrow D^{0} \overline{D}^{0} K^{\pm}$ channel. Data Stripping + Filter are the pre-selected $B$ candidates. The BDTCat is the MVA classifier which permits to separate background-like and signal-like candidates. The cut value set to -0.15 has been chosen maximising the $\frac{S}{\sqrt{S+B}}$ figure of merit (here $\sim 40$). The two peaks below the nominal $B^{+}$ mass  consists into reconstructed $D$ mesons from the strong $D^{\ast}\rightarrow D \pi$ decay where the $\pi$ is outside the LHCb acceptance.}}\label{Bmass}
 \end{center}
 \end{figure}
 
@@ -418,19 +476,52 @@ Further details about this preliminary work and a complete description of the ph
 %Name algorithm , the mc hit 
 \section{Choice of Thesis Topic}
 
-I would like to introduce this section introducing my point of view about physics and how i see the role of a \textit{PhD} student in physics. Regarding the physics and in particular particle physics i think that it's extremely important in physics to deep our knowledges and understand how physics processes works. This means that exploring the high energy regime of processes, i.e., study physics beyond the standard model is for me as interesting and exciting as exploring the low energy regime of particle physics where \textit{perturbation theory} (which is the theoretical framework for any kind of study of physics beyond the standard model) fails.
+Explore the high energy regime of processes, understand the processes for which we live in a world dominated by matter instead of anti-matter and in general all the searches for physics beyond the standard model is for me as interesting and exciting as exploring the low energy regime of particle physics where \textit{perturbation theory} (which is the theoretical framework for any kind of study of physics beyond the standard model) fails.
 
-In that context , i think that understand the bridge connecting particle physics and nuclear physics (i.e. the \textit{confinement} regime in \textit{QCD}) is fundamental as well as exploring physics beyond the standard model.
+In that context, i think that understand the bridge connecting particle physics and nuclear physics (i.e. the \textit{confinement} regime in \textit{QCD}) is fundamental as well as exploring physics beyond the standard model, since for whatever good theory it's fundamental to have a precise description of what is happening in between two different regimes.
 
-On top of that a better knowledge of what happen in this low energy regime can lead to better theoretical uncertainty estimation in almost all the analysis involvig \textit{b} and \textit{c} hadrons, since from the knowledge and the understanding of the potential between confined quarks one can also infer and estimate for instance the \textit{bag} parameters of heavy hadrons, as well as know with a better precision the effects of final state interactions and all the \textit{QCD} corrections to apply in order to provide a precise theoretical prediction. 
+On top of that, a better knowledge of what happen in this low energy regime can also lead to better theoretical uncertainty estimation in almost all the analysis involvig \textit{b} and \textit{c} hadrons, since from the knowledge and the understanding of the potential between confined quarks one can also infer and estimate for instance the \textit{bag} parameters of heavy hadrons, as well as know with a better precision the effects of final state interactions and all the \textit{QCD} corrections to apply in order to provide a precise theoretical prediction. 
 
-From this, it is easy to understand why i am interested in the study of exotic mesons and exotic structures rather than searching for physics beyond the standard model. The large statistics of \textit{B} hadrons produced at \textit{LHCb} is infact an extraordinary laboratory to also perform this studies and find new resonant states which are not ``conventional'' and thanks to the branching ratio measurement in double charm decays one can also infer on the dynamic properties of \textit{b} hadrons decay and investigate the final state interaction effects. Such kind of channels (double charmed), even if they are not the \textit{LHCb} priority, can also lead to very interesting discoveries and help at the same time the understanding of the \textit{QCD} effective theories.
+From this, it is easy to understand why i am interested in the study of exotic mesons and exotic structures rather than searching for physics beyond the standard model. 
+
+The large statistics of \textit{B} hadrons produced at \textit{LHCb} is infact an extraordinary laboratory to perform this studies and try to find new resonant states which are not ``conventional'' . In addition, thanks to the branching ratio measurement in double charm decays one can also infer on the dynamic properties of \textit{b} hadrons decay and investigate the final state interaction effects.
+
+Such kind of channels (double charmed), even if they are not the \textit{LHCb} priority, can also lead to very interesting discoveries and help at the same time the understanding of the \textit{QCD} effective theories.
+
 \section{Timetable for future}
 
 I am actually based at \textit{LaL} and i expect to move in \textit{Bristol University} in march 2016. Before that period, a public note regarding the new seeding algorithm will be produced and hopefully i will be able to perform the first task of my thesis, the \textit{Branching Ratio} measurement for $B^{0}\rightarrow D^{0}\overline{D}^{0}K^{\ast 0}$. As described in that section, the selection is done with a $BDT$ which is taking into account all the particles in the decay. This is something to avoid if one want to have a flat efficiency in the \textit{Dalitz} plane. In addition to that the usage of \textit{PID} variables in the \textit{BDT} will complicate the analysis when the systematics errors will be calculated because that variables are not well modelled in the \textit{MC}. In order to obtain similar efficiencies in the \textit{Dalitz} plane for the interesting and the reference channel, the idea is to train and test a new \textit{BDT} only for the $D^{0}$ selection without including the \textit{PID} variables for their daughters using as signal-like sample the truth matched \textit{MC} of the reference channel and as background like sample the sidebands of the $D^{0}$ in  $B^{+}\rightarrow D^{0} \pi^{+}$ data sample. In such a way we will have the same \textit{BDT} applied to the two $D$ daughters and a third global one using as input output of the $BDT$ classifier output of the $D^{0}$ ones and some topological and kinematical variables of the $K^{+}$ ($K^{\ast}$). In such a way we would expect to obtain the same efficiencies in the \textit{Dalitz} plane for the reference and the interest channel. This will be particularly important when the angular analysis will be performed in order to figure out the presence of some resonance in the \textit{Dalitz} plane.
 
 Regarding the tracking algorithm, i will also continue to work on that and try to improve it, but not full time involved as it has been untill now, and probably i will try to exploit the presence of additional bugs in the full simulation chain from time to time.
 %%% End document
+%\section{Talks and presentations}
+
+%In this section a list of all the presentations and talks will be given.
+%Regarding the tracking project, i systematically contribute to the \textit{SciFi} simulation and reconstruction working group:
+%\begin{itemize}
+%\item{Concerning the \textit{debugging}:}
+%  \begin{enumerate}
+%    \item{Understanding FTDet (LHCb upgrade Detector description, \textit{}}
+%    \item{Input for debugging ,\textit{https://indico.cern.ch/event/357379/contribution/0/0/material/slides/0.pdf} and \textit{https://indico.cern.ch/event/358839/contribution/1/0/material/slides/0.pdf} and \textit{https://indico.cern.ch/event/358839/contribution/1/0/material/slides/0.pdf}}
+%    \item{Comparison with \textit{TDR}, \textit{https://indico.cern.ch/event/369477/contribution/1/material/slides/1.pdf}}
+%     \item{Others contribution for debugging , \textit{https://indico.cern.ch/event/373437/contribution/1/material/slides/1.pdf},\textit{https://indico.cern.ch/event/374269/contribution/3/material/slides/0.pdf} , \textit{https://indico.cern.ch/event/380895/contribution/0/material/slides/0.pdf}, \textit{https://indico.cern.ch/event/380895/contribution/0/material/slides/0.pdf}}
+%  \end{enumerate}
+%\item{During a parallel session of the \textit{LHCb} week, i presented the status of the \textit{simulation and reconstruction} for the \textit{SciFi} general meeting,\textit{https://indico.cern.ch/event/374820/contribution/4/material/slides/0.pdf} }
+%  \item{Concerning the test beam data anlysis i presented the results for:
+%    \begin{enumerate}
+%    \item{The \textit{LaL} internal meeting ,\textit{}}
+%    \item{}
+%    \end{enumerate}
+%  \item{Concerning the \textit{Hybrid Seeding}:
+%      \begin{enumerate}
+%        \item{Internal presentation for the \textit{LHCb} LaL group meeting:}
+%        \item{
+%          \end{enumerate}
+%    }
+
+
+
+
 
 
 
@@ -439,8 +530,9 @@ Regarding the tracking algorithm, i will also continue to work on that and try t
 \bibitem{Blake2} LHCb collaboration, \textit{Letter of Intent for the LHCb Upgrade}, CERN-LHCC-2011-001, March 2011.
 \bibitem{Blake3} LHCb collaboration, \textit{Framework TDR for the LHCb Upgrade}, CERN-LHCC-2012-007, May 2012.
 \bibitem{SciFiTDR} LHCb collaboration, \textit{LHCb Scintillating Fibre Tracker Technical Design Repoxrt}, CERN-LHCC-2014-001; LHCb TDR 15.
-\bibitem{LetterIntent} LHCb collaboration, \textit{Letter of Intent for the LHCb Upgrade}, CERN-LHCC-2011-001
+%\bibitem{LetterIntent} LHCb collaboration, \textit{Letter of Intent for the LHCb Upgrade}, CERN-LHCC-2011-001
 \bibitem{AnalysisOrsay} Renato Quagliani, \textit{LaL internal presentation about the test beam},\emph{https://indico.lal.in2p3.fr/event/2506/contribution/1/material/slides/0.pdf}
+\bibitem{OrsayTestBeam} Renato Quagliani, \textit{Joint SciFi Tracker Simulation-Test Beam Meeting},\emph{https://indico.cern.ch/event/354578/contribution/5/material/slides/0.pdf}
 \bibitem{Tesi} Renato Quagliani, \textit{Master Degree thesis}, \emph{https://dbms.ilrt.bris.ac.uk/media/user/334129/tesi.pdf}
 
 \end{thebibliography}
