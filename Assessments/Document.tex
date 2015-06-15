@@ -103,7 +103,7 @@
 \end{center}
 \end{figure}
 \section{Overview of work done}
-A description of the work done during the first part of my PhD will be described in this document. It consists of two major blocks. The first one covers the physics analysis work that has been performed between June 2014 and October 2014. The second part of the document describes the work done in the context of the preparation for the upgrade of the LHCb detector. I worked on the improvement of a tracking as well as the development of a new algorithm: the \textit{Hybrid Seeding}.
+A description of the work done during the first part of my PhD will be described in this document. It consists of two major blocks. The first one covers the physics analysis work that has been performed between June 2014 and October 2014. The second part of the document describes the work done in the context of the preparation for the upgrade of the LHCb detector. I worked on the improvement of the simulation and reconstruction as well as for the development of a new tracking algorithm: the \textit{Hybrid Seeding}.
 %The analysis work regards the study of double charm $B$ decays at \textit{LHCb} while the \textit{Seeding Algorithm for the LHCb upgrade} connsists in a software development project.
 %\subsection{Track Reconstruction project : Seeding Algorithm for the LHCb Upgrade}
 Before getting to the heart of the work, an introduction about the tracking and the upgrade of the \textit{LHCb} detector is mandatory.
@@ -275,7 +275,7 @@ Some problems and inefficiencies in the software were not well understood passin
 
 In that context my effort was crucial (I took part to the ``\textit{DILBERT}'' task force for the software fixing and bug correction) to recover part of the loss in efficiency. A stable version of the detector simulation was released and starting from that, the development of a new pattern recognition algorithm becomes possible. 
 
-The discrepancies in efficiencies with the \textit{TDR} values were understood: increased dead region due to the gaps in between two different readout channels leads to a loss in efficiency or around 2$\%$ whcih is what is shown in ~\ref{table} comparing the first and the third column.
+The discrepancies in efficiencies with the \textit{TDR} values were understood: increased dead region due to the gaps in between two different readout channels leads to a loss in efficiency or around 2$\%$ whcih is what is shown in ~\ref{table} comparing the first and the third column. The results of the task force has been presented during the parallel session of the LHCb week on behalf of the simulation and reconstruction working group ~\cite{LHCbWeek}.
 
 In the meanwhile i partecipated the \textit{test beam} data taking and data analysis aiming to measure the attenuation lenght of the fibres doing light yield measurements scanning along the active material at different distances from the read-out and also evaluating the dependency of the cluster size against track incident angles. I also analyse some of the data from the test beam to study the cluster size properties as a function of the incident angle of tracks in the detector in order to tune the simulation to be the most reliable and realistic possible. ~\cite{AnalysisOrsay}~\cite{OrsayTestBeam}.
 
@@ -530,6 +530,7 @@ Regarding the tracking algorithm, i will also continue to work on that and try t
 \bibitem{Blake3} LHCb collaboration, \textit{Framework TDR for the LHCb Upgrade}, CERN-LHCC-2012-007, May 2012.
 \bibitem{SciFiTDR} LHCb collaboration, \textit{LHCb Scintillating Fibre Tracker Technical Design Repoxrt}, CERN-LHCC-2014-001; LHCb TDR 15.
 %\bibitem{LetterIntent} LHCb collaboration, \textit{Letter of Intent for the LHCb Upgrade}, CERN-LHCC-2011-001
+\bibitem{LHCbWeek} Renato Quagliani on behalf of the Simulation and Reconstruction group, \emph{Status of debugging} \textit{https://indico.cern.ch/event/374820/contribution/4/material/slides/0.pdf}
 \bibitem{AnalysisOrsay} Renato Quagliani, \textit{LaL internal presentation about the test beam},\emph{https://indico.lal.in2p3.fr/event/2506/contribution/1/material/slides/0.pdf}
 \bibitem{OrsayTestBeam} Renato Quagliani, \textit{Joint SciFi Tracker Simulation-Test Beam Meeting},\emph{https://indico.cern.ch/event/354578/contribution/5/material/slides/0.pdf}
 \bibitem{Tesi} Renato Quagliani, \textit{Master Degree thesis}, \emph{https://dbms.ilrt.bris.ac.uk/media/user/334129/tesi.pdf}
