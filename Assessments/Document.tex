@@ -307,9 +307,8 @@ where $dRatio$ is a fixed term resulting from a linear decrease along \textit{z}
 The track model in the non-bending plane (\textit{y-z}) is a straight line because the magnetic field along \textit{z} and \textit{x} is almost zero and it should not affect at all the track motion. Mathematically, the resulting track model is the direct consequence of the assumption for which the magnetic field is given by $$\overrightarrow{B} = (0,B0(x,y)+B1(x,y) \cdot z,0).$$ plus the addition of the fixed term $$dRatio = \frac{B1(x,y)}{B0(x,y)}=const.$$ which is a very good assumption for tracks going through the central region of the detector ($|x|<1000$mm and $|y|<1000$mm) while it becomes false if the tracks goes through the fringe field region corresponding to the external parts of the detector ($|x|>1000$mm and $|y|>1000$mm) where the occupancy is much smaller and looser requirements can be applied.
 
 Another improvement introduced in the algorithm concerns the possibility to estimate the origin vertex position ($x_{track}(z=0)$) accounting for the average bending the particles experience when they travel from the \textit{Velo} to the $z_{ref}$.
-This is encoded in the \textit{backward projection} parameter estimated as $X_{0}=a_{x}-b_x z_{ref} + c_{x}\cdot C$ where $C$ is fixed from \textit{MC} studies and it is related to $$C = \int _{ 0 }^{ { z }_{ ref } }{ dz' } \int _{ 0 }^{ z' }{ { B }_{ y }(z) } dz$$ and the other parameters are the one one would find from the fit.
+This is encoded in the \textit{backward projection} parameter estimated as $$X_{0}=a_{x}-b_x z_{ref} + c_{x}\cdot C$$ where $C$ is fixed from \textit{MC} studies and it is related to $$C = \int _{ 0 }^{ { z }_{ ref } }{ dz' } \int _{ 0 }^{ z' }{ { B }_{ y }(z) } dz$$ and the other parameters ($a_x ,b_x ,c_x $) are the one one would find from the fit.
 Since the largest part of tracks we detect comes from the origin vertex, the \textit{backward projection} becomes extremely usefull in the ghost rejection.
-
 
 The main limitations, or problems, of the previous algorithm can be summarized in few points:
 \begin{itemize} 
